@@ -1,0 +1,34 @@
+
+URL : ..../api/v1/recipe
+METHOD : POST
+Value In : Header
+{
+  api-key : developer app API KEY
+}
+
+Value In : Body
+{
+  name :
+  description :
+  procedure :
+  portion :
+  image :
+  created_by :
+  ingredients : [
+    {
+      ingredient_id :
+      amount :
+      unit :
+      description :
+      created_by :
+    },
+    {
+      ingredient_id :
+      amount :
+      unit :
+      description :
+      created_by :
+    },
+    ...
+  ]
+}

@@ -1,0 +1,76 @@
+[
+  {
+    "id":1,
+    "name":"Ayam Goreng",
+    "description":"Ayam goreng ini enak loo",
+    "procedure":"1. ayam disiapkan\r\n2. ayam digoreng\r\n3. ayam disajikan",
+    "portion":5,
+    "like":0,
+    "rating":0,
+    "image":"ayamgoreng.jpg",
+    "created_at":"2017-05-05 20:57:07",
+    "updated_at":"2017-05-05 20:57:55",
+    "deleted_at":null,
+    "created_by":null,
+    "updated_by":null,
+    "deleted_by":null,
+    "ingredients":[
+      {
+        "id":1,
+        "name":"Bawang Putih",
+        "created_at":"2017-05-06 18:30:41",
+        "updated_at":"2017-05-06 18:30:41",
+        "deleted_at":null,
+        "created_by":null,
+        "updated_by":null,
+        "deleted_by":null,
+        "pivot":{
+          "recipe_id":1,
+          "ingredient_id":1
+          },
+        "ingredient_data":{
+          "id":2,
+          "recipe_id":1,
+          "ingredient_id":1,
+          "amount":1,
+          "unit":"buah",
+          "description":"mentah",
+          "created_at":"2017-05-06 22:58:52",
+          "updated_at":"2017-05-06 22:58:52",
+          "deleted_at":null,
+          "created_by":null,
+          "updated_by":null,
+          "deleted_by":null
+          }
+      },
+      {
+        "id":2,
+        "name":"Daging Ayam",
+        "created_at":"2017-05-06 18:30:51",
+        "updated_at":"2017-05-06 18:30:51",
+        "deleted_at":null,
+        "created_by":null,
+        "updated_by":null,
+        "deleted_by":null,
+        "pivot":{
+          "recipe_id":1,
+          "ingredient_id":2
+          },
+        "ingredient_data":{
+          "id":1,
+          "recipe_id":1,
+          "ingredient_id":2,
+          "amount":500,
+          "unit":"gr",
+          "description":"dibakar",
+          "created_at":"2017-05-06 22:56:49",
+          "updated_at":"2017-05-06 22:58:26",
+          "deleted_at":null,
+          "created_by":null,
+          "updated_by":null,
+          "deleted_by":null
+          }
+      }
+    ]
+  }
+]
