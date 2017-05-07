@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
-  protected $table = 'recipe';
+  protected $table = 'recipes';
 
   protected $fillable = [
   'name',
@@ -24,8 +24,12 @@ class Recipe extends Model
   'deleted_by',
   ];
 
-  public function ingredient() {
-    return $this->hasMany('App\RecipeIngredient', 'recipe_id');
+  public function ingredientData() {
+    return $this->hasMany('App\IngredientData');
+  }
+
+  public function ingredients() {
+    return $this->belongsToMany('App\Ingredient');
   }
 
   public function createdBy() {

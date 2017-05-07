@@ -129,30 +129,6 @@ class User extends Authenticatable
     }
     /*---------------------- Ingredient -------------------*/
 
-    /*---------------------- RecipeIngredient -------------------*/
-    public function recipeIngredientCreated() {
-        return $this->hasMany('App\RecipeIngredient', 'created_by');
-    }
-    public function recipeIngredientUpdated() {
-        return $this->hasMany('App\RecipeIngredient', 'updated_by');
-    }
-    public function recipeIngredientDeleted() {
-        return $this->hasMany('App\RecipeIngredient', 'deleted_by');
-    }
-    /*---------------------- RecipeIngredient -------------------*/
-
-    /*---------------------- Unit -------------------*/
-    public function unitCreated() {
-        return $this->hasMany('App\Unit', 'created_by');
-    }
-    public function unitUpdated() {
-        return $this->hasMany('App\Unit', 'updated_by');
-    }
-    public function unitDeleted() {
-        return $this->hasMany('App\Unit', 'deleted_by');
-    }
-    /*---------------------- Unit -------------------*/
-
     /*---------------------- Recipe -------------------*/
     public function recipeCreated() {
         return $this->hasMany('App\Recipe', 'created_by');

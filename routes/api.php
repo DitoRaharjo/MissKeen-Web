@@ -13,6 +13,21 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::group(['prefix'=>env('API_VERSION')], function() {
+  Route::get('test', 'API\TestController@urlQuery')->name('api.urlQuery');
+  Route::post('test', 'API\TestController@postTest')->name('api.post');
+  Route::put('test', 'API\TestController@putTest')->name('api.put');
+  Route::patch('test', 'API\TestController@patchTest')->name('api.patch');
+  Route::delete('test', 'API\TestController@deleteTest')->name('api.delete');
+});
+
+Route::group(['prefix'=>env('API_VERSION')], function() {
+  Route::get('recipe', 'API\RecipeController@getAll')->name('recipe.getAll');
+  Route::get('recipe/{id}', 'API\RecipeController@getOne')->name('recipe.getOne');
+  Route::post('recipe', 'API\RecipeController@store')->name('recipe.store');
+  Route::patch('recipe', 'API\RecipeController@update')->name('recipe.update');
+  Route::delete('recipe', 'API\RecipeController@delete')->name('recipe.delete');
 });

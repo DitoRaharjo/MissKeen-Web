@@ -18,8 +18,12 @@ class Ingredient extends Model
   'deleted_by',
   ];
 
-  public function recipe() {
-    return $this->hasMany('App\RecipeIngredient', 'ingredient_id');
+  public function ingredientData() {
+    return $this->hasOne('App\IngredientData');
+  }
+
+  public function recipes() {
+    return $this->belongsToMany('App\Recipe');
   }
 
   public function createdBy() {
