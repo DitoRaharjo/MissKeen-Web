@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use Validator;
 use DB;
 use Carbon\Carbon;
 
@@ -15,16 +14,50 @@ use App\IngredientData;
 
 class RecipeController extends Controller
 {
-    public function getAll() {
-      $recipes = Recipe::with(['ingredients.ingredientData'])->where('deleted_at', null)->get();
+    public function getAll(Request $request) {
+      $this->validate($request, [
+          'user_id',
+      ]);
 
-      return response()->json($recipes);
+      $input_data = $request->only(
+        'user_id'
+      );
+
+      if($input_data['user_id'] == null) {
+        unset($input_data);
+        $recipes = Recipe::with(['ingredients.ingredientData'])->where('deleted_at', null)->get();
+      } else {
+        $recipes = Recipe::with(['ingredients.ingredientData'])->where([
+          ['deleted_at', null],
+          ['created_by', '=', $input_data['user_id']],
+          ])->get();
+      }
+
+      if($recipes->count() == 0) {
+        $result = [
+          'status' => 'No Data Found',
+          'method' => 'GET ALL'
+        ];
+        return response()->json($result, 404);
+      } else {
+        return response()->json($recipes);
+      }
     }
 
     public function getOne($id) {
-      $recipe = Recipe::with(['ingredients.ingredientData'])->where('id', '=', $id)->get();
+      $recipe = Recipe::with(['ingredients.ingredientData'])->where([
+        ['id', '=', $id]
+        ])->get();
 
-      return response()->json($recipe);
+      if($recipe->count() == 0) {
+        $result = [
+          'status' => 'No Data Found',
+          'method' => 'GET ONE'
+        ];
+        return response()->json($result, 404);
+      } else {
+        return response()->json($recipe);
+      }
     }
 
     public function store(Request $request) {
@@ -161,16 +194,6 @@ class RecipeController extends Controller
             'id' => 'required',
             'deleted_by' => 'required',
       ]);
-      
-      // $validator = Validator::make($request->all(), [
-      //     'id' => 'required',
-      //     'deleted_by' => 'required',
-      // ])->validate();
-      //
-      // if($validator->fails()) {
-      //   return response()->json($validator->messages(), 200);
-      // }
-
 
       $input_data = $request->only(
         'id',

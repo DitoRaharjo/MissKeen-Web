@@ -31,3 +31,11 @@ Route::group(['prefix'=>env('API_VERSION')], function() {
   Route::patch('recipe', 'API\RecipeController@update')->name('recipe.update');
   Route::delete('recipe', 'API\RecipeController@delete')->name('recipe.delete');
 });
+
+Route::group(['prefix'=>env('API_VERSION')], function() {
+  Route::get('ingredient', 'API\IngredientController@getAll')->name('ingredient.getAll');
+  Route::get('ingredient/{id}', 'API\IngredientController@getOne')->name('ingredient.getOne');
+  Route::post('ingredient', 'API\IngredientController@store')->name('recipe.store');
+  Route::patch('ingredient', 'API\IngredientController@update')->name('ingredient.update');
+  Route::delete('ingredient', 'API\IngredientController@delete')->name('ingredient.delete');
+});
