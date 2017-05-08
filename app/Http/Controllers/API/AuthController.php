@@ -57,6 +57,12 @@ class AuthController extends Controller
               'user' => $checkEmail
             ];
             return response()->json($result);
+          } else {
+            $result = [
+              'status' => 'false',
+              'info' => 'incorrect email and password combination'
+            ];
+            return response()->json($result);
           }
         }
       }
