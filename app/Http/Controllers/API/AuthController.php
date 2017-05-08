@@ -26,7 +26,7 @@ class AuthController extends Controller
 
       $checkEmail = User::where('email', '=', $input_data['email'])->first();
 
-      if($checkEmail->count() == 0) {
+      if($checkEmail == null) {
         $result = [
           'status' => 'false',
           'info' => 'user not found',
@@ -62,5 +62,5 @@ class AuthController extends Controller
       }
     }
 
-
+    public function register()
 }
