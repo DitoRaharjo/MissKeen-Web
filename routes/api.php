@@ -25,7 +25,8 @@ Route::group(['prefix'=>env('API_VERSION')], function() {
 });
 
 Route::group(['prefix'=>env('API_VERSION')], function() {
-  Route::post('auth', 'API\AuthController@auth')->name('user.auth');
+  Route::post('user/auth', 'API\AuthController@auth')->name('user.auth');
+  Route::post('user/register', 'API\AuthController@register')->name('user.register');
 });
 
 Route::group(['prefix'=>env('API_VERSION')], function() {

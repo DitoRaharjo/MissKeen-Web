@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 use App\User;
+use App\Role;
 
 class AuthController extends Controller
 {
@@ -36,8 +37,7 @@ class AuthController extends Controller
         if($checkEmail->status == 0) {
           $result = [
             'status' => 'false',
-            'user status' => '0',
-            'info' => 'user status inactive',
+            'info' => 'user status inactive, please contact admin for further information',
           ];
           return response()->json($result);
         } else {
@@ -65,6 +65,49 @@ class AuthController extends Controller
             return response()->json($result);
           }
         }
+      }
+    }
+
+    public function register(Request $request) {
+      $this->validate($request, [
+        'fullname' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+      ]);
+
+      $input_data = $request->only(
+        'fullname',
+        'email',
+        'password',
+        'telp',
+        'alamat',
+        'image'
+      );
+
+      DB::beginTransaction();
+      try
+      {
+        $roleId = Role::select('id')->where('name', 'LIKE', 'User')->first();
+        $input_data['role_id'] = $roleId;
+        $input_data['status'] = '1';
+        $input_data['registerdate'] = Carbon::now();
+
+        User::create($input_data);
+
+        DB::commit();
+
+        $result = [
+          'status' => 'true',
+          'method' => 'CREATE'
+        ];
+        return response()->json($result, 201);
+      } catch (\QueryException $ex) {
+        DB::rollback();
+        $result = [
+          'status' => 'false',
+          'info' => $ex
+        ];
+        return response()->json($result, 500);
       }
     }
 }
