@@ -25,6 +25,10 @@ Route::group(['prefix'=>env('API_VERSION')], function() {
 });
 
 Route::group(['prefix'=>env('API_VERSION')], function() {
+  Route::post('auth', 'API\AuthController@auth')->name('user.auth');
+});
+
+Route::group(['prefix'=>env('API_VERSION')], function() {
   Route::get('recipe', 'API\RecipeController@getAll')->name('recipe.getAll');
   Route::get('recipe/{id}', 'API\RecipeController@getOne')->name('recipe.getOne');
   Route::post('recipe', 'API\RecipeController@store')->name('recipe.store');
