@@ -43,15 +43,15 @@ class IngredientController extends Controller
         DB::commit();
 
         $result = [
-          'status' => 'OK',
+          'status' => 'true',
           'method' => 'CREATE'
         ];
         return response()->json($result, 201);
       } catch (\Exception $ex) {
         DB::rollback();
         $result = [
-          'status' => 'error',
-          'error info' => $ex
+          'status' => 'false',
+          'info' => $ex
         ];
         return response()->json($result, 500);
       }
@@ -82,15 +82,15 @@ class IngredientController extends Controller
         DB::commit();
 
         $result = [
-          'status' => 'OK',
+          'status' => 'true',
           'method' => 'UPDATE'
         ];
         return response()->json($result, 200);
       } catch (\Exception $ex) {
         DB::rollback();
         $result = [
-          'status' => 'error',
-          'error info' => $ex
+          'status' => 'false',
+          'info' => $ex
         ];
         return response()->json($result, 500);
       }
@@ -119,15 +119,15 @@ class IngredientController extends Controller
         DB::commit();
 
         $result = [
-          'status' => 'OK',
+          'status' => 'true',
           'method' => 'DELETE'
         ];
         return response()->json($result, 200);
       } catch (\Exception $ex) {
         DB::rollback();
         $result = [
-          'status' => 'error',
-          'error info' => $ex
+          'status' => 'false',
+          'info' => $ex
         ];
         return response()->json($result, 500);
       }

@@ -35,7 +35,8 @@ class RecipeController extends Controller
 
       if($recipes->count() == 0) {
         $result = [
-          'status' => 'No Data Found',
+          'status' => 'false',
+          'info' => 'No Data Found',
           'method' => 'GET ALL'
         ];
         return response()->json($result, 404);
@@ -51,7 +52,8 @@ class RecipeController extends Controller
 
       if($recipe->count() == 0) {
         $result = [
-          'status' => 'No Data Found',
+          'status' => 'false',
+          'info' => 'No Data Found',
           'method' => 'GET ONE'
         ];
         return response()->json($result, 404);
@@ -108,15 +110,15 @@ class RecipeController extends Controller
         DB::commit();
 
         $result = [
-          'status' => 'OK',
+          'status' => 'true',
           'method' => 'CREATE'
         ];
         return response()->json($result, 201);
-      } catch (\QueryException $ex) {
+      } catch (\Exception $ex) {
         DB::rollback();
         $result = [
-          'status' => 'error',
-          'error info' => $ex
+          'status' => 'false',
+          'info' => $ex
         ];
         return response()->json($result, 500);
       }
@@ -175,15 +177,15 @@ class RecipeController extends Controller
         DB::commit();
 
         $result = [
-          'status' => 'OK',
+          'status' => 'true',
           'method' => 'UPDATE'
         ];
         return response()->json($result, 200);
-      } catch (\QueryException $ex) {
+      } catch (\Exception $ex) {
         DB::rollback();
         $result = [
-          'status' => 'error',
-          'error info' => $ex
+          'status' => 'false',
+          'info' => $ex
         ];
         return response()->json($result, 500);
       }
@@ -220,15 +222,15 @@ class RecipeController extends Controller
         DB::commit();
 
         $result = [
-          'status' => 'OK',
+          'status' => 'true',
           'method' => 'DELETE'
         ];
         return response()->json($result, 200);
-      } catch (\QueryException $ex) {
+      } catch (\Exception $ex) {
         DB::rollback();
         $result = [
-          'status' => 'error',
-          'error info' => $ex
+          'status' => 'false',
+          'info' => $ex
         ];
         return response()->json($result, 500);
       }
