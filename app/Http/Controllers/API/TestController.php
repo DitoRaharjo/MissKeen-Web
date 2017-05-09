@@ -9,37 +9,42 @@ use Illuminate\Support\Facades\Input as Input;
 class TestController extends Controller
 {
     public function urlQuery(Request $request) {
+      $method = $request->method();
       $header = $request->header();
       $input = $request->all();
 
-      return response()->json(["header" => $header, "input" => $input]);
+      return response()->json(["method" => $method, "header" => $header, "input" => $input]);
     }
 
     public function postTest(Request $request) {
+      $method = $request->method();
       $header = $request->header();
       $input = $request->all();
 
-      return response()->json(["header" => $header, "input" => $input]);
+      return response()->json(["method" => $method, "header" => $header, "input" => $input]);
     }
 
     public function putTest(Request $request) {
+      $method = $request->method();
       $header = $request->header();
       $input = $request->all();
 
-      return response()->json(["header" => $header, "input" => $input]);
+      return response()->json(["method" => $method, "header" => $header, "input" => $input]);
     }
 
     public function patchTest(Request $request) {
+      $method = $request->method();
       $header = $request->header();
       $input = $request->all();
 
-      return response()->json(["header" => $header, "input" => $input]);
+      return response()->json(["method" => $method, "header" => $header, "input" => $input]);
     }
 
     public function deleteTest(Request $request) {
+      $method = $request->method();
       $header = $request->header();
       $input = $request->all();
 
-      return response()->json(["header" => $header, "input" => $input]);
+      return response()->json(["method" => $method, "header" => $header, "input" => $input]);
     }
 }
