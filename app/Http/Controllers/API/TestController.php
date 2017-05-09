@@ -9,34 +9,37 @@ use Illuminate\Support\Facades\Input as Input;
 class TestController extends Controller
 {
     public function urlQuery(Request $request) {
+      $header = $request->header();
       $input = $request->all();
 
-      $coba = $input;
-      return response()->json($input, 500);
+      return response()->json(["header" => $header, "input" => $input]);
     }
 
     public function postTest(Request $request) {
-      $dataTest = $request->except('_token');
-      // $inputTest = Input::all();
+      $header = $request->header();
+      $input = $request->all();
 
-      return response()->json($dataTest);
+      return response()->json(["header" => $header, "input" => $input]);
     }
 
     public function putTest(Request $request) {
-      $data = $request->except('_token');
+      $header = $request->header();
+      $input = $request->all();
 
-      return response()->json($data);
+      return response()->json(["header" => $header, "input" => $input]);
     }
 
     public function patchTest(Request $request) {
-      $data = $request->except('_token');
+      $header = $request->header();
+      $input = $request->all();
 
-      return response()->json($data);
+      return response()->json(["header" => $header, "input" => $input]);
     }
 
     public function deleteTest(Request $request) {
-      $data = $request->except('_token');
+      $header = $request->header();
+      $input = $request->all();
 
-      return response()->json($data);
+      return response()->json(["header" => $header, "input" => $input]);
     }
 }
