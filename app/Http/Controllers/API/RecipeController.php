@@ -15,9 +15,9 @@ use App\IngredientData;
 class RecipeController extends Controller
 {
     public function getAll(Request $request) {
-      $this->validate($request, [
-          'user_id',
-      ]);
+      // $this->validate($request, [
+      //     'user_id',
+      // ]);
 
       $input_data = $request->only(
         'user_id'
@@ -63,15 +63,15 @@ class RecipeController extends Controller
     }
 
     public function store(Request $request) {
-      $this->validate($request, [
-          'name' => 'required',
-          'description' => 'required',
-          'procedure' => 'required',
-          'portion' => 'required',
-          'image' => 'required',
-          'created_by' => 'required',
-          'ingredients' => 'required',
-      ]);
+      // $this->validate($request, [
+      //     'name' => 'required',
+      //     'description' => 'required',
+      //     'procedure' => 'required',
+      //     'portion' => 'required',
+      //     'image' => 'required',
+      //     'created_by' => 'required',
+      //     'ingredients' => 'required',
+      // ]);
 
       $input_data = $request->only(
         'name',
@@ -125,16 +125,16 @@ class RecipeController extends Controller
     }
 
     public function update(Request $request) {
-      $this->validate($request, [
-          'id' => 'required',
-          'name' => 'required',
-          'description' => 'required',
-          'procedure' => 'required',
-          'portion' => 'required',
-          'image' => 'required',
-          'updated_by' => 'required',
-          'ingredients' => 'required',
-      ]);
+      // $this->validate($request, [
+      //     'id' => 'required',
+      //     'name' => 'required',
+      //     'description' => 'required',
+      //     'procedure' => 'required',
+      //     'portion' => 'required',
+      //     'image' => 'required',
+      //     'updated_by' => 'required',
+      //     'ingredients' => 'required',
+      // ]);
 
       $input_data = $request->only(
         'id',
@@ -192,10 +192,10 @@ class RecipeController extends Controller
     }
 
     public function delete(Request $request) {
-      $this->validate($request, [
-            'id' => 'required',
-            'deleted_by' => 'required',
-      ]);
+      // $this->validate($request, [
+      //       'id' => 'required',
+      //       'deleted_by' => 'required',
+      // ]);
 
       $input_data = $request->only(
         'id',

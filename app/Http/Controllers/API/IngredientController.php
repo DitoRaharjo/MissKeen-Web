@@ -25,10 +25,10 @@ class IngredientController extends Controller
     }
 
     public function store(Request $request) {
-      $this->validate($request, [
-          'name' => 'required',
-          'created_by' => 'required',
-      ]);
+      // $this->validate($request, [
+      //     'name' => 'required',
+      //     'created_by' => 'required',
+      // ]);
 
       $input_data = $request->only(
         'name',
@@ -58,11 +58,11 @@ class IngredientController extends Controller
     }
 
     public function update(Request $request) {
-      $this->validate($request, [
-          'id' => 'required',
-          'name' => 'required',
-          'updated_by' => 'required',
-      ]);
+      // $this->validate($request, [
+      //     'id' => 'required',
+      //     'name' => 'required',
+      //     'updated_by' => 'required',
+      // ]);
 
       $input_data = $request->only(
         'id',
@@ -97,10 +97,10 @@ class IngredientController extends Controller
     }
 
     public function delete(Request $request) {
-      $this->validate($request, [
-            'id' => 'required',
-            'deleted_by' => 'required',
-      ]);
+      // $this->validate($request, [
+      //       'id' => 'required',
+      //       'deleted_by' => 'required',
+      // ]);
 
       $input_data = $request->only(
         'id',

@@ -15,10 +15,10 @@ use App\Role;
 class AuthController extends Controller
 {
     public function auth(Request $request) {
-      $this->validate($request, [
-          'email' => 'required',
-          'password' => 'required',
-      ]);
+      // $this->validate($request, [
+      //     'email' => 'required',
+      //     'password' => 'required',
+      // ]);
 
       $input_data = $request->only(
         'email',
@@ -69,11 +69,11 @@ class AuthController extends Controller
     }
 
     public function register(Request $request) {
-      $this->validate($request, [
-        'fullname' => 'required',
-        'email' => 'required',
-        'password' => 'required',
-      ]);
+      // $this->validate($request, [
+      //   'fullname' => 'required',
+      //   'email' => 'required',
+      //   'password' => 'required',
+      // ]);
 
       $input_data = $request->only(
         'fullname',
