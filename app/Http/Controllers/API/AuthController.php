@@ -88,7 +88,7 @@ class AuthController extends Controller
       try
       {
         $roleId = Role::select('id')->where('name', 'LIKE', 'User')->first();
-        $input_data['role_id'] = $roleId;
+        $input_data['role_id'] = $roleId->id;
         $input_data['status'] = '1';
         $input_data['registerdate'] = Carbon::now();
 
