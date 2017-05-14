@@ -84,6 +84,8 @@ class AuthController extends Controller
         'image'
       );
 
+      $input_data['password'] = bcrypt($input_data['password']);
+
       DB::beginTransaction();
       try
       {
