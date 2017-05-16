@@ -108,7 +108,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Beranda Admin </a>
                   </li>
-                  <li><a href="#"><i class="fa fa-list-ol"></i> Pengelolaan Kategori </a>
+                  <li><a href="{{ route('back.aplikasi.index') }}"><i class="fa fa-list-ol"></i> Pengelolaan Aplikasi </a>
                     <li><a href="#"><i class="fa fa-university"></i> Pengelolaan Fasilitas </a>
                   <li><a><i class="fa fa-calendar-o"></i> Pengelolaan Jadwal <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">

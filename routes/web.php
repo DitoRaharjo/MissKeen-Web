@@ -33,3 +33,13 @@ Route::group(['middleware'=>'checkUser', 'auth'], function() {
   Route::get('dashboard-administrator', 'Backend\UserController@dashboardAdministrator')->name('dashboard.administrator');
   Route::get('dashboard-developer', 'Backend\UserController@dashboardDeveloper')->name('dashboard.developer');
 });
+
+//Pengelolaan Application
+Route::group(['middleware'=>'checkUser', 'auth'], function() {
+  Route::get('aplikasi-index', 'backend\ApplicationController@index')->name('back.aplikasi.index');
+  Route::get('aplikasi-create', 'backend\ApplicationController@create')->name('back.aplikasi.create');
+  Route::post('aplikasi-store', 'backend\ApplicationController@store')->name('back.aplikasi.store');
+  Route::get('aplikasi-edit/{id}', 'backend\ApplicationController@edit')->name('back.aplikasi.edit');
+  Route::patch('aplikasi-update/{id}', 'backend\ApplicationController@update')->name('back.aplikasi.update');
+  Route::get('aplikasi-delete/{id}', 'backend\ApplicationController@destroy')->name('back.aplikasi.destroy');
+});
