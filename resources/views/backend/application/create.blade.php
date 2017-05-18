@@ -74,14 +74,26 @@
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">Link Video Youtube</label>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Kategori Aplikasi</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" name="youtube_link" class="form-control" placeholder="Link Video Youtube untuk Kegiatan Aplikasi">
+                <select class="select2_kategori form-control" required="" name="category_id">
+                  <option></option>
+                  @foreach($semuaKategori as $kategori)
+                    <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto Aplikasi</label>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Website Aplikasi</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" name="app_website" class="form-control" placeholder="Website Aplikasi" >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Icon Aplikasi</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group image-preview" data-original-title="" title="">
                     <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
@@ -101,23 +113,9 @@
               </div>
             </div>
 
-            <div class="x_title">
-              <div class="clearfix"></div>
-            </div>
-
-            <!-------------------------------------------------------SUMMARY ARTIKEL---------------------------->
-
-            <div class="x_title">
-              <h2>Deskripsi Aplikasi</h2>
-              <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-              <textarea name="deskripsi"  id="deskripsi" class="form-control" required=""></textarea>
-            </div>
-
-        <div class="x_title">
-          <div class="clearfix"></div>
-        </div>
+          <div class="x_title">
+            <div class="clearfix"></div>
+          </div>
 
           <div class="col-md-2 col-sm-12 col-xs-12 form-group">
 
@@ -149,16 +147,6 @@
 @endsection
 
 @section('custom_script')
-<!-- Texteditor Summernote Summary-->
-<script>
-      $(document).ready(function() {
-          $('#deskripsi').summernote({
-            height:300,
-          });
-      });
-</script>
-<!-- Texteditor Summernot Summary-->
-
 <!-- Select2 -->
 <script>
   $(document).ready(function() {

@@ -23,8 +23,45 @@ class ApplicationController extends Controller
   }
 
   public function create() {
-    $semuaCategory = Category::all();
+    $semuaKategori = Category::all();
+    return view('backend.application.create', compact('semuaKategori'));
+  }
 
-    return view('backend.application.create', compact('semuaCategory'));
+  public function store(Request $request) {
+    $this->validate($request, [
+        'app_name' => 'required',
+        'category_id' => 'required',
+        'image' => 'required',
+    ]);
+
+    $aplikasi_data = $request->except('_token');
+
+    $random = str_random(4);
+    $filename = (string)(date('Y-m-d') . '_' . $random . '.jpg');
+
+    if($request->hasFile('image')) {
+      $request->file('image')->move('uploads/ApplicationImage', $filename);
+      $aplikasi_data['image'] = $filename;
+    }
+    else {
+      unset($aplikasi_data['image']);
+    }
+
+    DB::beginTransaction();
+    try
+    {
+      $aplikasi_data['token'] = str_random(30);
+      $aplikasi_data['token_secret'] = Hash::make($aplikasi_data['token']);
+      $aplikasi_data['created_by']=Auth::user()->id;
+      $aplikasi_data['status'] = '1';
+      UserApp::create($aplikasi_data);
+      DB::commit();
+
+      alert()->success('Aplikasi berhasil di tambahkan', 'Tambah Aplikasi Berhasil!');
+      return redirect()->route('back.aplikasi.index');
+    } catch (\QueryException $ex) {
+        DB::rollback();
+        throw $ex;
+    }
   }
 }

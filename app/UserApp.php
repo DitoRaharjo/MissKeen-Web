@@ -11,7 +11,7 @@ class UserApp extends Model
   protected $fillable = [
   'status',
   'category_id',
-  'app_name'.
+  'app_name',
   'token',
   'token_secret',
   'rate_limit',
