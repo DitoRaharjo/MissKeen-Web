@@ -25,7 +25,7 @@ class ApplicationController extends Controller
   }
 
   public function create() {
-    $semuaKategori = Category::all();
+    $semuaKategori = Category::where('name', '!=', 'Internal')->get();
     return view('backend.application.create', compact('semuaKategori'));
   }
 
@@ -68,7 +68,7 @@ class ApplicationController extends Controller
   }
 
   public function edit($id) {
-    $semuaKategori = Category::all();
+    $semuaKategori = Category::where('name', '!=', 'Internal')->get();
     $aplikasi = UserApp::find($id);
 
     if($aplikasi->created_by == Auth::user()->id) {
