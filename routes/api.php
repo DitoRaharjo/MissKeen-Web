@@ -24,12 +24,12 @@ Route::group(['prefix'=>env('API_VERSION'), 'middleware'=>'checkApiKey'], functi
   Route::delete('test', 'API\TestController@deleteTest')->name('api.delete');
 });
 
-Route::group(['prefix'=>env('API_VERSION')], function() {
+Route::group(['prefix'=>env('API_VERSION'), 'middleware'=>'checkApiKey'], function() {
   Route::post('user/auth', 'API\AuthController@auth')->name('user.auth');
   Route::post('user/register', 'API\AuthController@register')->name('user.register');
 });
 
-Route::group(['prefix'=>env('API_VERSION')], function() {
+Route::group(['prefix'=>env('API_VERSION'), 'middleware'=>'checkApiKey'], function() {
   Route::get('recipe', 'API\RecipeController@getAll')->name('recipe.getAll');
   Route::get('recipe/{id}', 'API\RecipeController@getOne')->name('recipe.getOne');
   Route::post('recipe', 'API\RecipeController@store')->name('recipe.store');
@@ -37,7 +37,7 @@ Route::group(['prefix'=>env('API_VERSION')], function() {
   Route::delete('recipe', 'API\RecipeController@delete')->name('recipe.delete');
 });
 
-Route::group(['prefix'=>env('API_VERSION')], function() {
+Route::group(['prefix'=>env('API_VERSION'), 'middleware'=>'checkApiKey'], function() {
   Route::get('ingredient', 'API\IngredientController@getAll')->name('ingredient.getAll');
   Route::get('ingredient/{id}', 'API\IngredientController@getOne')->name('ingredient.getOne');
   Route::post('ingredient', 'API\IngredientController@store')->name('recipe.store');
