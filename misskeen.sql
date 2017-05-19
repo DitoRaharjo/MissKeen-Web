@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2017 at 05:39 PM
+-- Generation Time: May 19, 2017 at 06:03 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -141,7 +141,7 @@ CREATE TABLE `ingredient_data` (
 
 INSERT INTO `ingredient_data` (`id`, `recipe_id`, `ingredient_id`, `amount`, `unit`, `description`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
 (1, 1, 1, 10, 'pack', 'dibakar', '2017-05-06 15:56:49', '2017-05-07 08:30:38', NULL, 1, NULL, NULL),
-(2, 1, 1, 1, 'buah', 'mentah', '2017-05-06 15:58:52', '2017-05-07 08:40:10', NULL, 1, NULL, NULL),
+(2, 1, 2, 1, 'Kg', 'mentah', '2017-05-06 15:58:52', '2017-05-19 16:00:31', NULL, 1, NULL, NULL),
 (3, 2, 4, 2, 'siung', 'mentah', '2017-05-06 15:59:01', '2017-05-07 08:40:11', NULL, 1, NULL, NULL),
 (4, 2, 3, 10, 'lonjor', 'matang', '2017-05-06 15:59:30', '2017-05-07 08:40:12', NULL, 1, NULL, NULL),
 (5, 2, 5, 1, 'ember', 'masih bentuk batu', '2017-05-06 16:50:41', '2017-05-07 08:30:38', NULL, 1, NULL, NULL),
@@ -208,7 +208,7 @@ CREATE TABLE `recipes` (
   `portion` int(11) DEFAULT NULL,
   `like` bigint(20) DEFAULT NULL,
   `rating` int(11) DEFAULT NULL,
-  `image` varchar(254) NOT NULL,
+  `image` varchar(254) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
@@ -322,8 +322,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `telp`, `alamat`, `image`, `role_id`, `password`, `lupa_pass`, `status`, `registerdate`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`, `remember_token`) VALUES
-(1, 'Dito Raharjo', 'ditoparker@gmail.com', '085602131300', 'Jl. jalan 123', NULL, 1, '$2y$10$D6F9BYygxov8KWhTJKyzwOU3LyWoQzWcyB1XTrNyx/Xz8NDndmCbO', NULL, '1', '0000-00-00', '2017-05-08 04:34:23', '2017-05-19 14:48:20', NULL, 1, NULL, NULL, 'jeGQZErxn6L38mxgTnrxm1m88akJl5IHUDFQbaHteXNRc2VaOVtMC2j12a7A'),
-(8, 'Developer 1', 'developer1@gmail.com', '1234', NULL, NULL, 2, '$2y$10$S0XAO6h4IKYTCVScVTDnHe8SQsTFLk6r3bbGy9YgNubWQogcpni/K', NULL, '1', '2017-05-15', '2017-05-15 11:28:12', '2017-05-19 14:50:02', NULL, NULL, NULL, NULL, 'VdIOPkABv2O6jZfnpcNiRfyxzDaBjeHCHn65SZ58nP8UIuweNlwlC9nycbQE'),
+(1, 'Dito Raharjo', 'ditoparker@gmail.com', '085602131300', 'Jl. jalan 123', NULL, 1, '$2y$10$D6F9BYygxov8KWhTJKyzwOU3LyWoQzWcyB1XTrNyx/Xz8NDndmCbO', NULL, '1', '0000-00-00', '2017-05-08 04:34:23', '2017-05-19 16:02:00', NULL, 1, NULL, NULL, 'nfFVunNYIRZ4qLLMpzdEVOi2MRDApvSRoOD82bZ2tufuT0GjsvtGuATDkaRO'),
+(8, 'Developer 1', 'developer1@gmail.com', '1234', NULL, NULL, 2, '$2y$10$S0XAO6h4IKYTCVScVTDnHe8SQsTFLk6r3bbGy9YgNubWQogcpni/K', NULL, '1', '2017-05-15', '2017-05-15 11:28:12', '2017-05-19 16:02:11', NULL, NULL, NULL, NULL, 'bF21dlfyScaOI3pafGYXW9KK0dzjOPcSqvF02s2cHA74BJG03Y2VmdpkewnG'),
 (9, 'Developer 2', 'developer2@gmail.com', NULL, NULL, NULL, 2, '$2y$10$Z7un.KN5x24iwii/lnrFLei2MF70XhuDZDzrm3PH6PHj4IYn41o9W', NULL, '1', '2017-05-15', '2017-05-15 16:06:12', '2017-05-15 16:06:17', NULL, NULL, NULL, NULL, 'rAGDQGFt0FQEaCV2OcQXDerjq0QHR4JrH928gSaiqBNQcsTtx1XLlYX6HE1f');
 
 -- --------------------------------------------------------
@@ -356,7 +356,7 @@ CREATE TABLE `user_app` (
 --
 
 INSERT INTO `user_app` (`id`, `category_id`, `app_name`, `token`, `token_secret`, `status`, `rate_limit`, `oauth`, `app_website`, `image`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
-(1, 1, 'MissKeen', 'nN2BVe0vO6t42PO3xCqywJNF2jWZ59', '$2y$10$TcqUzKngfSuasZKn1LCjpuZCiKx0aPo8jrsYifZkSqpyBydoKPQb2', '1', NULL, NULL, 'aaa', '2017-05-19_YRt2.jpg', '2017-05-18 14:51:34', '2017-05-19 14:35:39', NULL, 1, 1, NULL);
+(1, 1, 'MissKeen', 'nN2BVe0vO6t42PO3xCqywJNF2jWZ59', '$2y$10$TcqUzKngfSuasZKn1LCjpuZCiKx0aPo8jrsYifZkSqpyBydoKPQb2', '1', NULL, NULL, 'aaa', NULL, '2017-05-18 14:51:34', '2017-05-19 15:58:35', NULL, 1, 1, NULL);
 
 --
 -- Indexes for dumped tables
