@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2017 at 11:52 AM
+-- Generation Time: May 19, 2017 at 05:39 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `api_method`
 --
 
-DROP TABLE IF EXISTS `api_method`;
 CREATE TABLE `api_method` (
   `id` int(11) NOT NULL,
   `name` varchar(254) NOT NULL DEFAULT '0',
@@ -47,7 +46,6 @@ CREATE TABLE `api_method` (
 -- Table structure for table `app_api`
 --
 
-DROP TABLE IF EXISTS `app_api`;
 CREATE TABLE `app_api` (
   `id` int(11) NOT NULL,
   `app_id` int(11) NOT NULL,
@@ -67,10 +65,9 @@ CREATE TABLE `app_api` (
 -- Table structure for table `category`
 --
 
-DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `name` varchar(254) NOT NULL DEFAULT '0',
+  `name` varchar(254) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
@@ -79,13 +76,21 @@ CREATE TABLE `category` (
   `deleted_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
+(1, 'Internal', '2017-05-18 13:36:38', '2017-05-19 13:51:46', NULL, NULL, NULL, NULL),
+(2, 'Pendidikan', '2017-05-19 13:51:50', '2017-05-19 13:51:50', NULL, NULL, NULL, NULL),
+(3, 'Lain-Lain', '2017-05-19 13:52:00', '2017-05-19 13:52:00', NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `ingredients`
 --
 
-DROP TABLE IF EXISTS `ingredients`;
 CREATE TABLE `ingredients` (
   `id` bigint(20) NOT NULL,
   `name` varchar(254) NOT NULL,
@@ -115,7 +120,6 @@ INSERT INTO `ingredients` (`id`, `name`, `created_at`, `updated_at`, `deleted_at
 -- Table structure for table `ingredient_data`
 --
 
-DROP TABLE IF EXISTS `ingredient_data`;
 CREATE TABLE `ingredient_data` (
   `id` bigint(20) NOT NULL,
   `recipe_id` bigint(20) NOT NULL DEFAULT '0',
@@ -141,10 +145,16 @@ INSERT INTO `ingredient_data` (`id`, `recipe_id`, `ingredient_id`, `amount`, `un
 (3, 2, 4, 2, 'siung', 'mentah', '2017-05-06 15:59:01', '2017-05-07 08:40:11', NULL, 1, NULL, NULL),
 (4, 2, 3, 10, 'lonjor', 'matang', '2017-05-06 15:59:30', '2017-05-07 08:40:12', NULL, 1, NULL, NULL),
 (5, 2, 5, 1, 'ember', 'masih bentuk batu', '2017-05-06 16:50:41', '2017-05-07 08:30:38', NULL, 1, NULL, NULL),
-(7, 11, 1, 1, 'siung', 'dibakar', '2017-05-06 17:22:28', '2017-05-07 09:28:11', '2017-05-07 16:28:11', 1, NULL, 1),
-(8, 11, 5, 1, 'ember', 'masih bentuk batu', '2017-05-06 17:22:28', '2017-05-07 09:28:11', '2017-05-07 16:28:11', 1, NULL, 1),
-(9, 12, 1, 10, 'pack', 'masih di dalam tanah', '2017-05-06 17:22:41', '2017-05-07 09:00:52', '2017-05-07 16:00:52', 1, 1, 1),
-(10, 12, 5, 11, 'baskom', 'masih bentuk air laut', '2017-05-06 17:22:41', '2017-05-07 09:00:52', '2017-05-07 16:00:52', 1, 1, 1);
+(7, 11, 1, 1, 'siung', 'dibakar', '2017-05-06 17:22:28', '2017-05-07 17:30:51', NULL, 1, NULL, NULL),
+(8, 11, 5, 1, 'ember', 'masih bentuk batu', '2017-05-06 17:22:28', '2017-05-07 17:30:53', NULL, 1, NULL, NULL),
+(9, 12, 1, 10, 'pack', 'masih di dalam tanah', '2017-05-06 17:22:41', '2017-05-07 17:30:54', NULL, 1, 1, NULL),
+(10, 12, 5, 11, 'baskom', 'masih bentuk air laut', '2017-05-06 17:22:41', '2017-05-07 17:30:56', NULL, 1, 1, NULL),
+(11, 13, 1, 1, 'siung', 'dibakar', '2017-05-08 05:00:38', '2017-05-08 05:00:38', NULL, 1, NULL, NULL),
+(12, 13, 5, 1, 'ember', 'masih bentuk batu', '2017-05-08 05:00:38', '2017-05-08 05:00:38', NULL, 1, NULL, NULL),
+(13, 14, 1, 1, 'siung', 'dibakar', '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, 1, NULL, NULL),
+(14, 14, 5, 1, 'ember', 'masih bentuk batu', '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, 1, NULL, NULL),
+(15, 15, 1, 1, 'siung', 'dibakar', '2017-05-08 10:12:41', '2017-05-08 10:12:41', NULL, 1, NULL, NULL),
+(16, 15, 5, 1, 'ember', 'masih bentuk batu', '2017-05-08 10:12:41', '2017-05-08 10:12:41', NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,7 +162,6 @@ INSERT INTO `ingredient_data` (`id`, `recipe_id`, `ingredient_id`, `amount`, `un
 -- Table structure for table `ingredient_recipe`
 --
 
-DROP TABLE IF EXISTS `ingredient_recipe`;
 CREATE TABLE `ingredient_recipe` (
   `id` bigint(20) NOT NULL,
   `recipe_id` bigint(20) NOT NULL DEFAULT '0',
@@ -177,7 +186,13 @@ INSERT INTO `ingredient_recipe` (`id`, `recipe_id`, `ingredient_id`, `created_at
 (5, 11, 1, '2017-05-06 17:22:28', '2017-05-06 17:22:28', NULL, NULL, NULL, NULL),
 (6, 11, 5, '2017-05-06 17:22:28', '2017-05-06 17:22:28', NULL, NULL, NULL, NULL),
 (7, 12, 1, '2017-05-06 17:22:41', '2017-05-06 17:22:41', NULL, NULL, NULL, NULL),
-(8, 12, 5, '2017-05-06 17:22:41', '2017-05-06 17:22:41', NULL, NULL, NULL, NULL);
+(8, 12, 5, '2017-05-06 17:22:41', '2017-05-06 17:22:41', NULL, NULL, NULL, NULL),
+(9, 13, 1, '2017-05-08 05:00:38', '2017-05-08 05:00:38', NULL, NULL, NULL, NULL),
+(10, 13, 5, '2017-05-08 05:00:38', '2017-05-08 05:00:38', NULL, NULL, NULL, NULL),
+(11, 14, 1, '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, NULL, NULL, NULL),
+(12, 14, 5, '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, NULL, NULL, NULL),
+(13, 15, 1, '2017-05-08 10:12:42', '2017-05-08 10:12:42', NULL, NULL, NULL, NULL),
+(14, 15, 5, '2017-05-08 10:12:42', '2017-05-08 10:12:42', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -185,7 +200,6 @@ INSERT INTO `ingredient_recipe` (`id`, `recipe_id`, `ingredient_id`, `created_at
 -- Table structure for table `recipes`
 --
 
-DROP TABLE IF EXISTS `recipes`;
 CREATE TABLE `recipes` (
   `id` bigint(20) NOT NULL,
   `name` text NOT NULL,
@@ -208,10 +222,13 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`id`, `name`, `description`, `procedure`, `portion`, `like`, `rating`, `image`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
-(1, 'Ayam Goreng', 'Ayam goreng ini enak loo', '1. ayam disiapkan\r\n2. ayam digoreng\r\n3. ayam disajikan', 5, 0, 0, 'ayamgoreng.jpg', '2017-05-05 13:57:07', '2017-05-07 08:22:25', NULL, NULL, NULL, NULL),
-(2, 'Pete Bakar', 'Pete Bakar mantaaps', '1. siapkan 10 lonjor pete\r\n2. Lempar ke pembakaran sampah\r\n3. tunggu api padam\r\n4. ambil pete\r\n5. hidangkan di piring\r\n6. siap di santap', 1, 0, 0, 'petebakar.jpg', '2017-05-05 14:02:49', '2017-05-05 14:02:57', NULL, NULL, NULL, NULL),
-(11, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-06 17:22:28', '2017-05-07 09:28:11', '2017-05-07 16:28:11', 1, NULL, 1),
-(12, 'coba patch resep 2', 'ini coba patch 2', '1. patch uyee asdsd \n 2. patch hulala aaaaaa', 100, NULL, NULL, 'coba1patch.jpg', '2017-05-06 17:22:41', '2017-05-07 09:00:52', '2017-05-07 16:00:52', 1, 1, 1);
+(1, 'Ayam Goreng', 'Ayam goreng ini enak loo', '1. ayam disiapkan\r\n2. ayam digoreng\r\n3. ayam disajikan', 5, 0, 0, 'ayamgoreng.jpg', '2017-05-05 13:57:07', '2017-05-07 17:21:12', NULL, 1, NULL, NULL),
+(2, 'Pete Bakar', 'Pete Bakar mantaaps', '1. siapkan 10 lonjor pete\r\n2. Lempar ke pembakaran sampah\r\n3. tunggu api padam\r\n4. ambil pete\r\n5. hidangkan di piring\r\n6. siap di santap', 1, 0, 0, 'petebakar.jpg', '2017-05-05 14:02:49', '2017-05-07 17:30:23', NULL, 1, NULL, NULL),
+(11, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-06 17:22:28', '2017-05-07 17:31:04', NULL, 2, NULL, NULL),
+(12, 'coba patch resep 2', 'ini coba patch 2', '1. patch uyee asdsd \n 2. patch hulala aaaaaa', 100, NULL, NULL, 'coba1patch.jpg', '2017-05-06 17:22:41', '2017-05-07 17:31:05', NULL, 2, 1, NULL),
+(13, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-08 05:00:38', '2017-05-08 05:00:38', NULL, 1, NULL, NULL),
+(14, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, 1, NULL, NULL),
+(15, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-08 10:12:41', '2017-05-08 10:12:41', NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -219,7 +236,6 @@ INSERT INTO `recipes` (`id`, `name`, `description`, `procedure`, `portion`, `lik
 -- Table structure for table `role`
 --
 
-DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `id` int(11) NOT NULL,
   `name` varchar(254) NOT NULL,
@@ -231,13 +247,21 @@ CREATE TABLE `role` (
   `deleted_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
+(1, 'Administrator', '2017-05-08 04:35:34', '2017-05-08 04:35:37', NULL, 1, NULL, NULL),
+(2, 'Developer', '2017-05-08 04:35:44', '2017-05-08 04:35:45', NULL, 1, NULL, NULL),
+(3, 'User', '2017-05-08 04:35:58', '2017-05-15 07:14:57', NULL, 1, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `unit`
 --
 
-DROP TABLE IF EXISTS `unit`;
 CREATE TABLE `unit` (
   `id` int(11) NOT NULL,
   `name` varchar(254) NOT NULL,
@@ -272,12 +296,11 @@ INSERT INTO `unit` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`, `cre
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `fullname` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `telp` varchar(12) NOT NULL,
+  `telp` varchar(12) DEFAULT NULL,
   `alamat` text,
   `image` varchar(250) DEFAULT NULL,
   `role_id` int(11) NOT NULL,
@@ -294,24 +317,32 @@ CREATE TABLE `users` (
   `remember_token` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `fullname`, `email`, `telp`, `alamat`, `image`, `role_id`, `password`, `lupa_pass`, `status`, `registerdate`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`, `remember_token`) VALUES
+(1, 'Dito Raharjo', 'ditoparker@gmail.com', '085602131300', 'Jl. jalan 123', NULL, 1, '$2y$10$D6F9BYygxov8KWhTJKyzwOU3LyWoQzWcyB1XTrNyx/Xz8NDndmCbO', NULL, '1', '0000-00-00', '2017-05-08 04:34:23', '2017-05-19 14:48:20', NULL, 1, NULL, NULL, 'jeGQZErxn6L38mxgTnrxm1m88akJl5IHUDFQbaHteXNRc2VaOVtMC2j12a7A'),
+(8, 'Developer 1', 'developer1@gmail.com', '1234', NULL, NULL, 2, '$2y$10$S0XAO6h4IKYTCVScVTDnHe8SQsTFLk6r3bbGy9YgNubWQogcpni/K', NULL, '1', '2017-05-15', '2017-05-15 11:28:12', '2017-05-19 14:50:02', NULL, NULL, NULL, NULL, 'VdIOPkABv2O6jZfnpcNiRfyxzDaBjeHCHn65SZ58nP8UIuweNlwlC9nycbQE'),
+(9, 'Developer 2', 'developer2@gmail.com', NULL, NULL, NULL, 2, '$2y$10$Z7un.KN5x24iwii/lnrFLei2MF70XhuDZDzrm3PH6PHj4IYn41o9W', NULL, '1', '2017-05-15', '2017-05-15 16:06:12', '2017-05-15 16:06:17', NULL, NULL, NULL, NULL, 'rAGDQGFt0FQEaCV2OcQXDerjq0QHR4JrH928gSaiqBNQcsTtx1XLlYX6HE1f');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `user_app`
 --
 
-DROP TABLE IF EXISTS `user_app`;
 CREATE TABLE `user_app` (
   `id` int(11) NOT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `app_name` varchar(254) NOT NULL,
+  `token` varchar(254) DEFAULT NULL,
+  `token_secret` varchar(254) DEFAULT NULL,
   `status` enum('1','0') NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `app_name` varchar(254) NOT NULL DEFAULT '0',
-  `token` varchar(254) NOT NULL,
-  `token_secret` varchar(254) NOT NULL,
-  `rate_limit` bigint(20) NOT NULL,
-  `oauth` enum('1','0') NOT NULL,
-  `app_website` varchar(254) NOT NULL,
-  `image` varchar(254) NOT NULL,
+  `rate_limit` bigint(20) DEFAULT NULL,
+  `oauth` enum('1','0') DEFAULT NULL,
+  `app_website` varchar(254) DEFAULT NULL,
+  `image` varchar(254) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
@@ -319,6 +350,13 @@ CREATE TABLE `user_app` (
   `updated_by` int(11) DEFAULT NULL,
   `deleted_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_app`
+--
+
+INSERT INTO `user_app` (`id`, `category_id`, `app_name`, `token`, `token_secret`, `status`, `rate_limit`, `oauth`, `app_website`, `image`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
+(1, 1, 'MissKeen', 'nN2BVe0vO6t42PO3xCqywJNF2jWZ59', '$2y$10$TcqUzKngfSuasZKn1LCjpuZCiKx0aPo8jrsYifZkSqpyBydoKPQb2', '1', NULL, NULL, 'aaa', '2017-05-19_YRt2.jpg', '2017-05-18 14:51:34', '2017-05-19 14:35:39', NULL, 1, 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -409,7 +447,7 @@ ALTER TABLE `app_api`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `ingredients`
 --
@@ -419,22 +457,22 @@ ALTER TABLE `ingredients`
 -- AUTO_INCREMENT for table `ingredient_data`
 --
 ALTER TABLE `ingredient_data`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `ingredient_recipe`
 --
 ALTER TABLE `ingredient_recipe`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `unit`
 --
@@ -444,12 +482,12 @@ ALTER TABLE `unit`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user_app`
 --
 ALTER TABLE `user_app`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
