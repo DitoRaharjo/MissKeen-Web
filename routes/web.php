@@ -36,16 +36,32 @@ Route::group(['middleware'=>'checkUser', 'auth'], function() {
 
 //Pengelolaan Application
 Route::group(['middleware'=>'checkUser', 'auth'], function() {
-  Route::get('aplikasi-index', 'backend\ApplicationController@index')->name('back.aplikasi.index');
-  Route::get('aplikasi-create', 'backend\ApplicationController@create')->name('back.aplikasi.create');
-  Route::post('aplikasi-store', 'backend\ApplicationController@store')->name('back.aplikasi.store');
-  Route::get('aplikasi-edit/{id}', 'backend\ApplicationController@edit')->name('back.aplikasi.edit');
-  Route::patch('aplikasi-update/{id}', 'backend\ApplicationController@update')->name('back.aplikasi.update');
-  Route::get('aplikasi-delete/{id}', 'backend\ApplicationController@destroy')->name('back.aplikasi.destroy');
+  Route::get('aplikasi-index', 'Backend\ApplicationController@index')->name('back.aplikasi.index');
+  Route::get('aplikasi-create', 'Backend\ApplicationController@create')->name('back.aplikasi.create');
+  Route::post('aplikasi-store', 'Backend\ApplicationController@store')->name('back.aplikasi.store');
+  Route::get('aplikasi-edit/{id}', 'Backend\ApplicationController@edit')->name('back.aplikasi.edit');
+  Route::patch('aplikasi-update/{id}', 'Backend\ApplicationController@update')->name('back.aplikasi.update');
+  Route::get('aplikasi-delete/{id}', 'Backend\ApplicationController@destroy')->name('back.aplikasi.destroy');
 
-  Route::get('aplikasi-updateApiKey/{id}', 'backend\ApplicationController@updateApiKey')->name('back.aplikasi.updateApiKey');
-  Route::patch('aplikasi-updatefoto/{id}', 'backend\ApplicationController@updateFoto')->name('back.aplikasi.updatefoto');
+  Route::get('aplikasi-updateApiKey/{id}', 'Backend\ApplicationController@updateApiKey')->name('back.aplikasi.updateApiKey');
+  Route::patch('aplikasi-updatefoto/{id}', 'Backend\ApplicationController@updateFoto')->name('back.aplikasi.updatefoto');
 
-  Route::get('aplikasi-live/{id}', 'backend\ApplicationController@updateLive')->name('back.aplikasi.live');
-  Route::get('aplikasi-development/{id}', 'backend\ApplicationController@updateDevelopment')->name('back.aplikasi.development');
+  Route::get('aplikasi-live/{id}', 'Backend\ApplicationController@updateLive')->name('back.aplikasi.live');
+  Route::get('aplikasi-development/{id}', 'Backend\ApplicationController@updateDevelopment')->name('back.aplikasi.development');
+});
+
+//Pengelolaan Application Internal Administrator
+Route::group(['middleware'=>'checkUser', 'auth'], function() {
+  Route::get('aplikasiAdmin-index', 'Backend\AdminApplicationController@index')->name('back.aplikasiAdmin.index');
+  Route::get('aplikasiAdmin-create', 'Backend\AdminApplicationController@create')->name('back.aplikasiAdmin.create');
+  Route::post('aplikasiAdmin-store', 'Backend\AdminApplicationController@store')->name('back.aplikasiAdmin.store');
+  Route::get('aplikasiAdmin-edit/{id}', 'Backend\AdminApplicationController@edit')->name('back.aplikasiAdmin.edit');
+  Route::patch('aplikasiAdmin-update/{id}', 'Backend\AdminApplicationController@update')->name('back.aplikasiAdmin.update');
+  Route::get('aplikasiAdmin-delete/{id}', 'Backend\AdminApplicationController@destroy')->name('back.aplikasiAdmin.destroy');
+
+  Route::get('aplikasiAdmin-updateApiKey/{id}', 'Backend\AdminApplicationController@updateApiKey')->name('back.aplikasiAdmin.updateApiKey');
+  Route::patch('aplikasiAdmin-updatefoto/{id}', 'Backend\AdminApplicationController@updateFoto')->name('back.aplikasiAdmin.updatefoto');
+
+  Route::get('aplikasiAdmin-live/{id}', 'Backend\AdminApplicationController@updateLive')->name('back.aplikasiAdmin.live');
+  Route::get('aplikasiAdmin-development/{id}', 'Backend\AdminApplicationController@updateDevelopment')->name('back.aplikasiAdmin.development');
 });

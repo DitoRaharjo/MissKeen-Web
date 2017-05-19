@@ -11,16 +11,18 @@ use Carbon\Carbon;
 use Auth;
 
 use App\User;
+use App\UserApp;
 use App\Role;
 
 class UserController extends Controller
 {
     public function dashboardAdministrator() {
       if (strcasecmp(Auth::user()->role->name,'Administrator')==0) {
-        return view('backend.dashboard.administrator');
+        // return view('backend.dashboard.administrator');
+        return redirect()->route('back.aplikasiAdmin.edit', 1);
       } else {
         alert()->error('Akun anda tidak memiliki hak untuk melihat halaman ini', 'Pelanggaran Akun!');
-        return redirect()->route('dashboard.developer');
+        return redirect()->route('user.login');
       }
     }
 

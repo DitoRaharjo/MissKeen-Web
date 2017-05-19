@@ -146,7 +146,7 @@
                 <div class="x_content">
                   <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
 
-                    <form id="demo-form4" action="{{ route('back.aplikasi.updatefoto', $aplikasi->id) }}" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form4" action="{{ route('back.aplikasiAdmin.updatefoto', $aplikasi->id) }}" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                       {{ csrf_field() }}
                     <input type="hidden" name="_method" value="PATCH">
 
@@ -189,7 +189,7 @@
                   </br>
                   </br>
 
-                  <form id="demo-form2" action="{{ route('back.aplikasi.update', $aplikasi->id) }}" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                  <form id="demo-form2" action="{{ route('back.aplikasiAdmin.update', $aplikasi->id) }}" method="POST" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                     {{ csrf_field() }}
                   <input type="hidden" name="_method" value="PATCH">
 
@@ -203,17 +203,14 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Status </label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ubah Status
+                    </label>
                     <div class="col-md-8 col-sm-6 col-xs-12">
-                      <p>
-                        @if($aplikasi->status == 1)
-                          Live &nbsp &nbsp &nbsp &nbsp <input type="radio" class="flat" name="status" id="aktif" value="1" checked="" required="" />
-                          &nbsp &nbsp &nbsp Development &nbsp &nbsp &nbsp<input type="radio" class="flat" name="status" id="nonaktif" value="0" required="" />
-                        @else
-                          Live &nbsp &nbsp &nbsp &nbsp <input type="radio" class="flat" name="status" id="aktif" value="1" required="" />
-                          &nbsp &nbsp &nbsp Development &nbsp &nbsp &nbsp<input type="radio" class="flat" name="status" id="nonaktif" value="0" checked required="" />
-                        @endif
-                      </p>
+                      @if($aplikasi->status == 1)
+                        <a id="nonaktif-btn" class="btn btn-warning" customParam="{{ route('back.aplikasiAdmin.development', $aplikasi->id) }}" href="#"><span class="fa fa-times-circle"></span> Development</a>
+                      @else
+                        <a id="aktif-btn" class="btn btn-success" customParam="{{ route('back.aplikasiAdmin.live', $aplikasi->id) }}" href="#"><span class="fa fa-check-circle"></span> Live</a>
+                      @endif
                     </div>
                   </div>
 
@@ -226,32 +223,13 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Kategori
-                    </label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                      <select class="select2_kategori form-control" name="category_id" required="">
-                        @foreach($semuaKategori as $kategori)
-                          @if($kategori->id == $aplikasi->category_id)
-                            <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
-                          @endif
-                        @endforeach
-                        @foreach($semuaKategori as $kategori)
-                          @if($kategori->id != $aplikasi->category_id)
-                            <option value="{{ $kategori->id }}">{{ $kategori->name }}</option>
-                          @endif
-                        @endforeach
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">API Key
                     </label>
                     <div class="col-md-8 col-sm-6 col-xs-12">
                       <div class="input-group" data-toggle="tooltip" data-placement="top" title="Jagalah kerahasiaan API Key anda, lakukan refresh jika API Key anda sudah dirasa tidak aman">
                         <input type="text" class="form-control" disabled="" value="{{ $aplikasi->token }}">
                         <span class="input-group-btn">
-                          <a id="refresh-btn" href="#" customParam="{{ route('back.aplikasi.updateApiKey', $aplikasi->id) }}" type="button" class="btn btn-primary">Refresh</a>
+                          <a id="refresh-btn" href="#" customParam="{{ route('back.aplikasiAdmin.updateApiKey', $aplikasi->id) }}" type="button" class="btn btn-primary">Refresh</a>
                         </span>
                       </div>
                     </div>
@@ -261,7 +239,6 @@
 
                   <div class="form-group">
                     <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
-                      <a href="{{ route('back.aplikasi.index') }}" class="btn btn-warning"><span class="fa fa-arrow-circle-left"></span> Kembali</a>
                       <button type="submit" class="btn btn-success"><span class="fa fa-edit m-right-xs"></span> Simpan Perubahan Profile</button>
                     </div>
                   </div>
