@@ -10,7 +10,7 @@ class TestController extends Controller
 {
     public function urlQuery(Request $request) {
       $method = $request->method();
-      $header = $request->header();
+      $header = $request->header('api-key');
       $input = $request->all();
 
       return response()->json(["method" => $method, "header" => $header, "input" => $input]);
