@@ -106,41 +106,11 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Beranda Admin </a>
-                  </li>
-                  <li><a href="{{ route('back.aplikasi.index') }}"><i class="fa fa-list-ol"></i> Pengelolaan Aplikasi </a>
-                    <li><a href="#"><i class="fa fa-university"></i> Pengelolaan Fasilitas </a>
-                  <li><a><i class="fa fa-calendar-o"></i> Pengelolaan Jadwal <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#"><i class="fa fa-exchange"></i> Jadwal</a></li>
-                      <li><a href="#"><i class="fa fa-home"></i> Kelas</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-users"></i> Pengelolaan Pengguna <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a><i class="fa fa-user"></i> Peran<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                          <li><a href="#">Member</a></li>
-                          <li><a href="#">Instruktur</a></li>
-                          <li><a href="#">Admin</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="#"><i class="fa fa-money"></i> Pengelolaan Paket </a>
-                  <li><a><i class="fa fa-edit"></i> Pengelolaan Artikel <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#"><i class="fa fa-medkit"></i> Tips Sehat</a></li>
-                      <li><a href="#"><i class="fa fa-bullhorn"></i> Event</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#"><i class="fa fa-file-image-o"></i> Galeri Gambar</a></li>
-                  <li><a><i class="fa fa-cogs"></i> Pengelolaan Homepage <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#"><i class="fa fa-cog"></i> Kelola Identitas Web</a></li>
-                      <li><a href="#"><i class="fa fa-cog"></i> Slider Gambar</a></li>
-                    </ul>
-                  </li>
+                  @if(strcasecmp(Auth::user()->role->name, 'Developer')==0  )
+                    <li><a href="{{ route('back.aplikasi.index') }}"><i class="fa fa-desktop "></i> Pengelolaan Aplikasi </a>
+                  @elseif(strcasecmp(Auth::user()->role->name, 'Administrator')==0 )
+                    <li><a href="#"><i class="fa fa-desktop "></i> Aplikasi Internal</a>
+                  @endif
                 </ul>
               </div>
 
@@ -169,7 +139,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="#"><i class="fa fa-user pull-right"></i> Profile</a></li>
+                    <!-- <li><a href="#"><i class="fa fa-user pull-right"></i> Profile</a></li> -->
 
                     <li><a href="{{ Route('user.logout') }}"><i class="fa fa-sign-out pull-right"></i> Keluar</a></li>
                   </ul>

@@ -42,4 +42,10 @@ Route::group(['middleware'=>'checkUser', 'auth'], function() {
   Route::get('aplikasi-edit/{id}', 'backend\ApplicationController@edit')->name('back.aplikasi.edit');
   Route::patch('aplikasi-update/{id}', 'backend\ApplicationController@update')->name('back.aplikasi.update');
   Route::get('aplikasi-delete/{id}', 'backend\ApplicationController@destroy')->name('back.aplikasi.destroy');
+
+  Route::get('aplikasi-updateApiKey/{id}', 'backend\ApplicationController@updateApiKey')->name('back.aplikasi.updateApiKey');
+  Route::patch('aplikasi-updatefoto/{id}', 'backend\ApplicationController@updateFoto')->name('back.aplikasi.updatefoto');
+
+  Route::get('aplikasi-live/{id}', 'backend\ApplicationController@updateLive')->name('back.aplikasi.live');
+  Route::get('aplikasi-development/{id}', 'backend\ApplicationController@updateDevelopment')->name('back.aplikasi.development');
 });

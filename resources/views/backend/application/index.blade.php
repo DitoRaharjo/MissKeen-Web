@@ -40,16 +40,16 @@
                             <td valign="middle" >{{ $aplikasi->app_name }}</td>
                             <td align="center" valign="middle" >
                             @if( $aplikasi->status == 1 )
-                              Live
-                            @elseif( $aplikas->status == 0 )
-                              Development
+                              <span class="label label-success">Live</span>
+                            @elseif( $aplikasi->status == 0 )
+                              <span class="label label-warning">Development</span>
                             @endif
                             </td>
                             <td align="center" valign="middle">
                             @if($aplikasi->status == 1)
-                              <a id="nonaktif-btn" class="btn btn-danger btn-xs" customParam="#" href="#"><span class="fa fa-times-circle"></span> Development</a>
+                              <a id="nonaktif-btn" class="btn btn-danger btn-xs" customParam="{{ route('back.aplikasi.development', $aplikasi->id) }}" href="#"><span class="fa fa-times-circle"></span> Development</a>
                             @else
-                              <a id="aktif-btn" class="btn btn-success btn-xs" customParam="#" href="#"><span class="fa fa-check-circle"></span> Live</a>
+                              <a id="aktif-btn" class="btn btn-success btn-xs" customParam="{{ route('back.aplikasi.live', $aplikasi->id) }}" href="#"><span class="fa fa-check-circle"></span> Live</a>
                             @endif
                             </td>
                             <td align="center" valign="middle">
