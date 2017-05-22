@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/frontpage/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{ asset('css/frontpage/owl.theme.css')}}">
     <!-- plugins-->
-    <link rel="stylesheet" href="{{ asset('css/frontpage/simpletextrotator')}}">
+    <link rel="stylesheet" href="{{ asset('css/frontpage/simpletextrotator.css')}}">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{ asset('css/frontpage/custom.css')}}">
     <!-- Favicon-->
