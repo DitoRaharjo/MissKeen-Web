@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use DB;
 use Carbon\Carbon;
 
+use App\Http\Requests\CobaRequest;
+
 use App\Recipe;
 use App\Ingredient;
 use App\IngredientData;
@@ -61,6 +63,7 @@ class RecipeController extends Controller
         return response()->json($recipe);
       }
     }
+
 
     public function store(Request $request) {
       // $this->validate($request, [
