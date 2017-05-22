@@ -36,7 +36,7 @@
               <div id="toc">
       </div>
                     <ul class="toc-footer">
-                                  <li><a href='http://ditoraharjo.co/misskeen'>MissKeen API</a></li>
+                                  <li><a href='http://ditoraharjo.co/misskeen'>MissKeen API Doc</a></li>
                             </ul>
             </div>
     <div class="page-wrapper">
@@ -44,10 +44,8 @@
       <div class="content">
           <!-- START_INFO -->
 <h1>Introduction</h1>
-<p> Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-<p> We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-<p> This example API documentation page was created with Whiteboard. Feel free to edit it and use it as a base for your own API’s documentation.</p>
-<p><a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<p> Welcome to the MissKeen API! You can use our API to access MissKeen API endpoints, which can get information on various recipe and ingredient in our database.</p>
+<p> Right now we only have language bindings in Shell! You can view code examples in the dark area to the right. We will make another language bindings in the future.</p>
 <!-- END_INFO -->
 <h1>Authentication</h1>
 <blockquote>
@@ -61,6 +59,7 @@
 <p> MissKeen uses API keys to allow access to the API. You can register a new MissKeen API key at our developer portal. </p>
 <p> MissKeen expects for the API key to be included in all API requests to the server in a <b>header</b> that looks like the following: </p>
 <p> <code> api-key : your-API-key </code> </p>
+<p> Doesn't have your personal API key yet? register <a href="http://ditoraharjo.co/misskeen/register" target="blank">here</a>  </p>
 <aside class="notice">
 You must replace <code>your-API-key</code> with your personal API key.
 </aside>
@@ -91,10 +90,7 @@ You must replace <code>your-API-key</code> with your personal API key.
         "image": "your-image"
     }
 }</code></pre>
-<p> Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-<p> We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-<p> This example API documentation page was created with Whiteboard. Feel free to edit it and use it as a base for your own API’s documentation.</p>
-<p><a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<p> This endpoints used for authenticating user login.</p>
 <h3>HTTP Request</h3>
 <p><code>POST http://ditoraharjo.co/misskeen/api/v1/user/auth</code></p>
 <h3>Request Body Parameters</h3>
@@ -143,10 +139,7 @@ You must replace <code>your-API-key</code> with your personal API key.
   "status": "true",
   "method": "CREATE"
 }</code></pre>
-<p> Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-<p> We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-<p> This example API documentation page was created with Whiteboard. Feel free to edit it and use it as a base for your own API’s documentation.</p>
-<p><a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<p> This endpoints used for registering new user.</p>
 <h3>HTTP Request</h3>
 <p><code>POST http://ditoraharjo.co/misskeen/api/v1/user/register</code></p>
 <h3>Request Body Parameters</h3>
@@ -262,6 +255,7 @@ You must replace <code>your-API-key</code> with your personal API key.
       "another recipe" : "..."
     }
 ]</code></pre>
+<p> This endpoints retrieves all recipe.</p>
 <h3>HTTP Request</h3>
 <p><code>GET http://ditoraharjo.co/misskeen/api/v1/recipe</code></p>
 <h3>Query Parameters</h3>
@@ -344,6 +338,7 @@ You must replace <code>your-API-key</code> with your personal API key.
         ]
     }
 ]</code></pre>
+<p> This endpoints retrieves a specific recipe.</p>
 <h3>HTTP Request</h3>
 <p><code>GET http://ditoraharjo.co/misskeen/api/v1/recipe/{id}</code></p>
 <h3>URL Parameters</h3>
@@ -401,6 +396,7 @@ You must replace <code>your-API-key</code> with your personal API key.
   "status": "true",
   "method": "CREATE"
 }</code></pre>
+<p> This endpoints used for creating a new recipe.</p>
 <h3>HTTP Request</h3>
 <p><code>POST http://ditoraharjo.co/misskeen/api/v1/recipe</code></p>
 <h3>Request Body Parameters</h3>
@@ -507,6 +503,7 @@ You must replace <code>your-API-key</code> with your personal API key.
   "status": "true",
   "method": "UPDATE"
 }</code></pre>
+<p> This endpoints used for updating recipe.</p>
 <h3>HTTP Request</h3>
 <p><code>PATCH http://ditoraharjo.co/misskeen/api/v1/recipe</code></p>
 <h3>Request Body Parameters</h3>
@@ -601,6 +598,7 @@ You must replace <code>your-API-key</code> with your personal API key.
   "status": "true",
   "method": "DELETE"
 }</code></pre>
+<p> This endpoints used for deleting recipe.</p>
 <h3>HTTP Request</h3>
 <p><code>DELETE http://ditoraharjo.co/misskeen/api/v1/recipe</code></p>
 <h3>Request Body Parameters</h3>
@@ -632,202 +630,284 @@ You must replace <code>your-API-key</code> with your personal API key.
 <h1>Ingredient</h1>
 <p>Welcome to the generated API reference.
 <a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
-<h1>general</h1>
 <!-- START_7fa38cd83d8af56179c16242660ea14b -->
-<h2>api/v1/ingredient</h2>
+<h2>Get All Ingredient</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/v1/ingredient" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
+<pre><code class="language-bash">curl -X GET "http://ditoraharjo.co/misskeen/api/v1/ingredient" \
+-H "Content-Type: application/json" \
+-H 'api-key: your-API-Key'</code></pre>
 <blockquote>
 <p>Example response:</p>
 </blockquote>
 <pre><code class="language-json">[
     {
-        "id": 1,
-        "name": "Bawang Putih",
-        "created_at": "2017-05-06 18:30:41",
-        "updated_at": "2017-05-06 18:30:41",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
+        "id": ingredient-id,
+        "name": "ingredient-name",
+        "created_at": "ingredient-created-date",
+        "updated_at": "ingredient-updated-date",
+        "deleted_at": "ingredient-deleted-date",
+        "created_by": ingredient-maker-ID,
+        "updated_by": ingredient-updater-ID,
+        "deleted_by": ingredient-deleter-ID,
     },
     {
-        "id": 2,
-        "name": "Daging Ayam",
-        "created_at": "2017-05-06 18:30:51",
-        "updated_at": "2017-05-06 18:30:51",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
-    },
-    {
-        "id": 3,
-        "name": "Pete",
-        "created_at": "2017-05-06 18:30:59",
-        "updated_at": "2017-05-06 18:30:59",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
-    },
-    {
-        "id": 4,
-        "name": "Bawang Merah",
-        "created_at": "2017-05-06 18:31:09",
-        "updated_at": "2017-05-06 18:31:09",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
-    },
-    {
-        "id": 5,
-        "name": "Garam",
-        "created_at": "2017-05-06 18:31:37",
-        "updated_at": "2017-05-06 18:31:37",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
-    },
-    {
-        "id": 6,
-        "name": "Merica",
-        "created_at": "2017-05-06 18:33:48",
-        "updated_at": "2017-05-06 18:33:48",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
+        "another ingredient": "..."
     }
 ]</code></pre>
+<p> This endpoints retrieves all ingredient.</p>
 <h3>HTTP Request</h3>
-<p><code>GET api/v1/ingredient</code></p>
-<p><code>HEAD api/v1/ingredient</code></p>
+<p><code>GET http://ditoraharjo.co/misskeen/api/v1/ingredient</code></p>
 <!-- END_7fa38cd83d8af56179c16242660ea14b -->
 <!-- START_cbadb697a20a999f5cce57f767424c41 -->
-<h2>api/v1/ingredient/{id}</h2>
+<h2>Get a Specific Ingredient</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/v1/ingredient/{id}" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient/{id}",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
+<pre><code class="language-bash">curl -X GET "http://ditoraharjo.co/misskeen/api/v1/ingredient/{id}" \
+-H "Content-Type: application/json" \
+-H 'api-key: your-API-Key'</code></pre>
 <blockquote>
 <p>Example response:</p>
 </blockquote>
 <pre><code class="language-json">{
-    "id": 1,
-    "name": "Bawang Putih",
-    "created_at": "2017-05-06 18:30:41",
-    "updated_at": "2017-05-06 18:30:41",
-    "deleted_at": null,
-    "created_by": null,
-    "updated_by": null,
-    "deleted_by": null
+    "id": ingredient-id,
+    "name": "ingredient-name",
+    "created_at": "ingredient-created-date",
+    "updated_at": "ingredient-updated-date",
+    "deleted_at": "ingredient-deleted-date",
+    "created_by": ingredient-maker-ID,
+    "updated_by": ingredient-updater-ID,
+    "deleted_by": ingredient-deleter-ID,
 }</code></pre>
+<p> This endpoints retrieves a specific ingredient.</p>
 <h3>HTTP Request</h3>
-<p><code>GET api/v1/ingredient/{id}</code></p>
-<p><code>HEAD api/v1/ingredient/{id}</code></p>
+<p><code>GET http://ditoraharjo.co/misskeen/api/v1/ingredient/{id}</code></p>
+<h3>URL Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The ID of the ingredient to retrieve</td>
+</tr>
+</tbody>
+</table>
 <!-- END_cbadb697a20a999f5cce57f767424c41 -->
 <!-- START_a12996ecacd5b464bb59d4b1b0aa3d0a -->
-<h2>api/v1/ingredient</h2>
+<h2>Create Ingredient</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/v1/ingredient" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
+<pre><code class="language-bash">curl -X POST "http://ditoraharjo.co/misskeen/api/v1/ingredient" \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "name" : "ingredient name",
+    "created_by" : "User IDs of ingredient maker"
+  }'</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+  "status": "true",
+  "method": "CREATE"
+}</code></pre>
+<p> This endpoints used for creating a new ingredient.</p>
 <h3>HTTP Request</h3>
-<p><code>POST api/v1/ingredient</code></p>
+<p><code>POST http://ditoraharjo.co/misskeen/api/v1/ingredient</code></p>
+<h3>Request Body Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Name for ingredient that will be created</td>
+</tr>
+<tr>
+<td>created_by</td>
+<td>integer</td>
+<td>required</td>
+<td>The ID of the user who make the ingredient</td>
+</tr>
+</tbody>
+</table>
 <!-- END_a12996ecacd5b464bb59d4b1b0aa3d0a -->
 <!-- START_ad56434c0b1e80969f5db1bbbdfbfb73 -->
-<h2>api/v1/ingredient</h2>
+<h2>Update Ingredient</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PATCH "http://localhost/api/v1/ingredient" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient",
-    "method": "PATCH",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
+<pre><code class="language-bash">curl -X PATCH "http://ditoraharjo.co/misskeen/api/v1/ingredient" \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "id" : "ingredient ID",
+    "name" : "ingredient name",
+    "updated_by" : "User IDs of ingredient updater"
+  }'</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+  "status": "true",
+  "method": "UPDATE"
+}</code></pre>
+<p> This endpoints used for updating ingredient.</p>
 <h3>HTTP Request</h3>
-<p><code>PATCH api/v1/ingredient</code></p>
+<p><code>PATCH http://ditoraharjo.co/misskeen/api/v1/ingredient</code></p>
+<h3>Request Body Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>required</td>
+<td>ID for ingredient that will be updated</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Name for ingredient that will be updated</td>
+</tr>
+<tr>
+<td>updated_by</td>
+<td>integer</td>
+<td>required</td>
+<td>The ID of the user who update the ingredient</td>
+</tr>
+</tbody>
+</table>
 <!-- END_ad56434c0b1e80969f5db1bbbdfbfb73 -->
 <!-- START_2ff49e5a4a812f4072ac8a3fb55e0585 -->
-<h2>api/v1/ingredient</h2>
+<h2>Delete Ingredient</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE "http://localhost/api/v1/ingredient" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient",
-    "method": "DELETE",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
+<pre><code class="language-bash">curl -X DELETE "http://ditoraharjo.co/misskeen/api/v1/ingredient" \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "id" : "ingredient ID",
+    "deleted_by" : "User IDs of ingredient deleter"
+  }'</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+  "status": "true",
+  "method": "DELETE"
+}</code></pre>
+<p> This endpoints used for deleting ingredient.</p>
 <h3>HTTP Request</h3>
-<p><code>DELETE api/v1/ingredient</code></p>
-<!-- END_2ff49e5a4a812f4072ac8a3fb55e0585 -->
+<p><code>DELETE http://ditoraharjo.co/misskeen/api/v1/ingredient</code></p>
+<h3>Request Body Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>required</td>
+<td>ID for ingredient that will be deleted</td>
+</tr>
+<tr>
+<td>updated_by</td>
+<td>integer</td>
+<td>required</td>
+<td>The ID of the user who delete the ingredient</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2ff49e5a4a812f4072ac8a3fb55e0585 --><h1>Errors</h1>
+<p>The MissKeen API uses the following error codes:</p>
+<table>
+<thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request sucks</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The data requested is hidden for administrators only</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified request could not be found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a data with an invalid method</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn't json</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The data requested has been removed from our servers</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I'm a teapot</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You're requesting too many data! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We're temporarially offline for maintanance. Please try again later.</td>
+</tr>
+</tbody>
+</table>
       </div>
       <div class="dark-box">
                         <div class="lang-selector">
