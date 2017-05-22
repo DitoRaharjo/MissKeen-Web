@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<<<<<<< HEAD
+
     <title>MissKeen - Mobile Recipes Finder Application for Your Kitchen Needs.</title>
     <meta name="description" content="">
-=======
->>>>>>> develop
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="MissKeen">
   	<meta name="author" content="MissKeen" />

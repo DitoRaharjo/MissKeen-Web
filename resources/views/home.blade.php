@@ -115,15 +115,10 @@
             <div class="col-md-12 col-lg-8 col-lg-offset-2 text-center">
               <div class="icon brand-secondary"><i class="pe-7s-graph1"></i></div>
               <h2>Developer Documentation</h2>
-<<<<<<< HEAD
-              <p>Disamping sebagai sebuah aplikasi mobile, MissKeen juga merupakan penyedia API gratis yang memberikan kebebasan pada developer untuk mengembangkan berbagai aplikasi yang dimiliki. Untuk menggunakan API yang MissKeen gunakan sangat mudah, cukup dengan melihat dokumenatasi kami di documentation page.  </p>
-              <button class="btn btn-ghost"><a href="#">Download PDF</a></button>
-              <p class="margin-bottom--zero"><img alt="" src="{{asset('img/features33.png')}}" class="img-responsive"></p>
-=======
-              <p>Disamping sebagai sebuah aplikasi mobile, MissKeen juga merupakan penyedia API gratis yang memberikan kebebasan pada developer untuk mengembangkan berbagai aplikasi yang dimiliki. Untuk menggunakan API yang MissKeen gunakan sangat mudah, cukup dengan melakukan mengunduh dokumentasi MissKeen API yang tersedia.  </p>
+              <p>Disamping sebagai sebuah aplikasi mobile, MissKeen juga merupakan penyedia API gratis yang memberikan kebebasan pada developer untuk mengembangkan berbagai aplikasi yang dimiliki. Untuk menggunakan API yang MissKeen gunakan sangat mudah, cukup mengikuti dokumentasi api kami.  </p>
               <button class="btn btn-ghost"><a href="{{ route('api.doc') }}" target="blank">Go to API Doc Page</a></button>
-              <p class="margin-bottom--zero"><img alt="" src="{{asset('img/features3.png')}}" class="img-responsive"></p>
->>>>>>> develop
+              <p class="margin-bottom--zero"><img alt="" src="{{asset('img/features33.png')}}" class="img-responsive"></p>
+
             </div>
           </div>
         </div>
