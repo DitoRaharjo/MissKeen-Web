@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2017 at 06:03 PM
+-- Generation Time: May 22, 2017 at 11:31 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,6 +19,69 @@ SET time_zone = "+00:00";
 --
 -- Database: `misskeen`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `access_log`
+--
+
+CREATE TABLE `access_log` (
+  `id` bigint(11) NOT NULL,
+  `user_app_id` int(11) NOT NULL DEFAULT '0',
+  `path` varchar(254) NOT NULL,
+  `method` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `access_log`
+--
+
+INSERT INTO `access_log` (`id`, `user_app_id`, `path`, `method`, `created_at`, `updated_at`) VALUES
+(5, 3, 'test', 'GET', '2017-05-22 18:03:39', '2017-05-22 18:03:39'),
+(6, 3, 'test', 'GET', '2017-05-22 18:03:40', '2017-05-22 18:03:40'),
+(7, 3, 'test', 'GET', '2017-05-22 18:03:41', '2017-05-22 18:03:41'),
+(8, 3, 'test', 'GET', '2017-05-22 18:04:25', '2017-05-22 18:04:25'),
+(9, 3, 'test', 'GET', '2017-05-22 18:04:26', '2017-05-22 18:04:26'),
+(10, 3, 'test', 'POST', '2017-05-22 18:05:13', '2017-05-22 18:05:13'),
+(11, 3, 'test', 'POST', '2017-05-22 18:05:14', '2017-05-22 18:05:14'),
+(12, 4, 'test', 'GET', '2017-05-22 18:55:58', '2017-05-22 18:55:58'),
+(13, 4, 'test', 'GET', '2017-05-22 18:55:59', '2017-05-22 18:55:59'),
+(14, 5, 'test', 'GET', '2017-05-22 19:01:40', '2017-05-22 19:01:40'),
+(15, 5, 'test', 'GET', '2017-05-22 19:01:41', '2017-05-22 19:01:41'),
+(16, 5, 'test', 'GET', '2017-05-22 19:03:13', '2017-05-22 19:03:13'),
+(17, 5, 'recipe', 'GET', '2017-05-22 19:11:23', '2017-05-22 19:11:23'),
+(18, 5, 'recipe', 'GET', '2017-05-22 19:11:30', '2017-05-22 19:11:30'),
+(19, 5, 'ingredient', 'GET', '2017-05-22 19:11:42', '2017-05-22 19:11:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `api_log`
+--
+
+CREATE TABLE `api_log` (
+  `id` int(11) NOT NULL,
+  `user_app_id` int(11) NOT NULL,
+  `test` bigint(20) DEFAULT '0',
+  `user` bigint(20) DEFAULT '0',
+  `recipe` bigint(20) DEFAULT '0',
+  `ingredient` bigint(20) DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `api_log`
+--
+
+INSERT INTO `api_log` (`id`, `user_app_id`, `test`, `user`, `recipe`, `ingredient`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 0, 0, 0, '2017-05-22 16:52:03', '2017-05-22 16:52:03'),
+(2, 3, 23, 0, 0, 0, '2017-05-22 16:52:20', '2017-05-22 18:05:14'),
+(3, 4, 2, 0, 0, 0, '2017-05-22 18:55:14', '2017-05-22 18:55:59'),
+(4, 5, 3, 0, 2, 1, '2017-05-22 19:01:11', '2017-05-22 19:11:42');
 
 -- --------------------------------------------------------
 
@@ -154,7 +217,9 @@ INSERT INTO `ingredient_data` (`id`, `recipe_id`, `ingredient_id`, `amount`, `un
 (13, 14, 1, 1, 'siung', 'dibakar', '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, 1, NULL, NULL),
 (14, 14, 5, 1, 'ember', 'masih bentuk batu', '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, 1, NULL, NULL),
 (15, 15, 1, 1, 'siung', 'dibakar', '2017-05-08 10:12:41', '2017-05-08 10:12:41', NULL, 1, NULL, NULL),
-(16, 15, 5, 1, 'ember', 'masih bentuk batu', '2017-05-08 10:12:41', '2017-05-08 10:12:41', NULL, 1, NULL, NULL);
+(16, 15, 5, 1, 'ember', 'masih bentuk batu', '2017-05-08 10:12:41', '2017-05-08 10:12:41', NULL, 1, NULL, NULL),
+(17, 16, 1, 2, 'unit', 'raw', '2017-05-22 03:45:35', '2017-05-22 03:45:35', NULL, 1, NULL, NULL),
+(18, 16, 2, 1, 'units', 'raw', '2017-05-22 03:45:35', '2017-05-22 03:45:35', NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -192,7 +257,9 @@ INSERT INTO `ingredient_recipe` (`id`, `recipe_id`, `ingredient_id`, `created_at
 (11, 14, 1, '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, NULL, NULL, NULL),
 (12, 14, 5, '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, NULL, NULL, NULL),
 (13, 15, 1, '2017-05-08 10:12:42', '2017-05-08 10:12:42', NULL, NULL, NULL, NULL),
-(14, 15, 5, '2017-05-08 10:12:42', '2017-05-08 10:12:42', NULL, NULL, NULL, NULL);
+(14, 15, 5, '2017-05-08 10:12:42', '2017-05-08 10:12:42', NULL, NULL, NULL, NULL),
+(15, 16, 1, '2017-05-22 03:45:35', '2017-05-22 03:45:35', NULL, NULL, NULL, NULL),
+(16, 16, 2, '2017-05-22 03:45:35', '2017-05-22 03:45:35', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -228,7 +295,8 @@ INSERT INTO `recipes` (`id`, `name`, `description`, `procedure`, `portion`, `lik
 (12, 'coba patch resep 2', 'ini coba patch 2', '1. patch uyee asdsd \n 2. patch hulala aaaaaa', 100, NULL, NULL, 'coba1patch.jpg', '2017-05-06 17:22:41', '2017-05-07 17:31:05', NULL, 2, 1, NULL),
 (13, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-08 05:00:38', '2017-05-08 05:00:38', NULL, 1, NULL, NULL),
 (14, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-08 10:12:39', '2017-05-08 10:12:39', NULL, 1, NULL, NULL),
-(15, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-08 10:12:41', '2017-05-08 10:12:41', NULL, 1, NULL, NULL);
+(15, 'coba resep 1', 'ini coba post 1', '1. uyee \n 2. hulala', 1, NULL, NULL, 'coba1.jpg', '2017-05-08 10:12:41', '2017-05-08 10:12:41', NULL, 1, NULL, NULL),
+(16, 'Recipe 1', 'This is description', '1. one 2. two 3. three', 5, NULL, NULL, 'picture.jpg', '2017-05-22 03:45:35', '2017-05-22 03:45:35', NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -322,9 +390,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `telp`, `alamat`, `image`, `role_id`, `password`, `lupa_pass`, `status`, `registerdate`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`, `remember_token`) VALUES
-(1, 'Dito Raharjo', 'ditoparker@gmail.com', '085602131300', 'Jl. jalan 123', NULL, 1, '$2y$10$D6F9BYygxov8KWhTJKyzwOU3LyWoQzWcyB1XTrNyx/Xz8NDndmCbO', NULL, '1', '0000-00-00', '2017-05-08 04:34:23', '2017-05-19 16:02:00', NULL, 1, NULL, NULL, 'nfFVunNYIRZ4qLLMpzdEVOi2MRDApvSRoOD82bZ2tufuT0GjsvtGuATDkaRO'),
-(8, 'Developer 1', 'developer1@gmail.com', '1234', NULL, NULL, 2, '$2y$10$S0XAO6h4IKYTCVScVTDnHe8SQsTFLk6r3bbGy9YgNubWQogcpni/K', NULL, '1', '2017-05-15', '2017-05-15 11:28:12', '2017-05-19 16:02:11', NULL, NULL, NULL, NULL, 'bF21dlfyScaOI3pafGYXW9KK0dzjOPcSqvF02s2cHA74BJG03Y2VmdpkewnG'),
-(9, 'Developer 2', 'developer2@gmail.com', NULL, NULL, NULL, 2, '$2y$10$Z7un.KN5x24iwii/lnrFLei2MF70XhuDZDzrm3PH6PHj4IYn41o9W', NULL, '1', '2017-05-15', '2017-05-15 16:06:12', '2017-05-15 16:06:17', NULL, NULL, NULL, NULL, 'rAGDQGFt0FQEaCV2OcQXDerjq0QHR4JrH928gSaiqBNQcsTtx1XLlYX6HE1f');
+(1, 'Dito Raharjo', 'ditoparker@gmail.com', '085602131300', 'Jl. jalan 123', NULL, 1, '$2y$10$D6F9BYygxov8KWhTJKyzwOU3LyWoQzWcyB1XTrNyx/Xz8NDndmCbO', NULL, '1', '0000-00-00', '2017-05-08 04:34:23', '2017-05-22 19:29:31', NULL, 1, NULL, NULL, 'hM31hI702eS2NhV3dCqSy2sVZW7aQIgUeqBf8YqfTb8XxNdM6XRS0IEYrfeq'),
+(8, 'Developer 1', 'developer1@gmail.com', '1234', NULL, NULL, 2, '$2y$10$S0XAO6h4IKYTCVScVTDnHe8SQsTFLk6r3bbGy9YgNubWQogcpni/K', NULL, '1', '2017-05-15', '2017-05-15 11:28:12', '2017-05-22 21:14:49', NULL, NULL, NULL, NULL, '9wORmwKGha7j2me7AP35gNxFRoSBoSQL6fBwOq8jhpjDpTTd6rGxMcPcwFyI'),
+(9, 'Developer 2', 'developer2@gmail.com', NULL, NULL, NULL, 2, '$2y$10$Z7un.KN5x24iwii/lnrFLei2MF70XhuDZDzrm3PH6PHj4IYn41o9W', NULL, '1', '2017-05-15', '2017-05-15 16:06:12', '2017-05-22 19:17:34', NULL, NULL, NULL, NULL, 'w3TSq9XZBQJnDTMOd5R7MRFFeG1E2FRyViBrGTFCkHhWhT5chzuCOSsaU26o');
 
 -- --------------------------------------------------------
 
@@ -356,11 +424,26 @@ CREATE TABLE `user_app` (
 --
 
 INSERT INTO `user_app` (`id`, `category_id`, `app_name`, `token`, `token_secret`, `status`, `rate_limit`, `oauth`, `app_website`, `image`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
-(1, 1, 'MissKeen', 'nN2BVe0vO6t42PO3xCqywJNF2jWZ59', '$2y$10$TcqUzKngfSuasZKn1LCjpuZCiKx0aPo8jrsYifZkSqpyBydoKPQb2', '1', NULL, NULL, 'aaa', NULL, '2017-05-18 14:51:34', '2017-05-19 15:58:35', NULL, 1, 1, NULL);
+(1, 1, 'MissKeen', 'nN2BVe0vO6t42PO3xCqywJNF2jWZ59', '$2y$10$TcqUzKngfSuasZKn1LCjpuZCiKx0aPo8jrsYifZkSqpyBydoKPQb2', '1', NULL, NULL, 'http://ditoraharjo.co/misskeen/', NULL, '2017-05-18 14:51:34', '2017-05-22 16:37:48', NULL, 1, 1, NULL),
+(3, 2, 'coba aplikasi 1', '2LILIGdT0T2pQzkTj0H2nJau5rqNhV', '$2y$10$lsR5vOlBbnBrORou02Vko.hzst0gUNRkglbnDOBnjVV1z4T.fYPKO', '1', NULL, NULL, 'asd', '2017-05-22_awkf.jpg', '2017-05-22 16:52:20', '2017-05-22 16:52:20', NULL, 8, NULL, NULL),
+(4, 3, 'coba aplikasi 2', 'cEJS0c7jnWevq0eQ3O2C01BWsb3nds', '$2y$10$JCDKuEglGT3UO3O3SSVoruxoo/PLZLh4j8KIMREVgCswDtLlA0/4.', '1', NULL, NULL, 'ads', '2017-05-23_EmOt.jpg', '2017-05-22 18:55:14', '2017-05-22 18:55:14', NULL, 8, NULL, NULL),
+(5, 2, 'coba Aplikasi 3', 'lt5I9JkBlhACcjnAtu82ttYKkB6sj5', '$2y$10$22E/Tjp.SFfTmbw0fgGJB.LpdhU0ZRQRNAmmOB2sW0EJSEgfEyIZW', '1', NULL, NULL, 'ase', '2017-05-23_YlKw.jpg', '2017-05-22 19:01:11', '2017-05-22 19:03:09', NULL, 9, 9, NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `access_log`
+--
+ALTER TABLE `access_log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `api_log`
+--
+ALTER TABLE `api_log`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `api_method`
@@ -434,6 +517,16 @@ ALTER TABLE `user_app`
 --
 
 --
+-- AUTO_INCREMENT for table `access_log`
+--
+ALTER TABLE `access_log`
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `api_log`
+--
+ALTER TABLE `api_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `api_method`
 --
 ALTER TABLE `api_method`
@@ -457,17 +550,17 @@ ALTER TABLE `ingredients`
 -- AUTO_INCREMENT for table `ingredient_data`
 --
 ALTER TABLE `ingredient_data`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `ingredient_recipe`
 --
 ALTER TABLE `ingredient_recipe`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -487,7 +580,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_app`
 --
 ALTER TABLE `user_app`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
