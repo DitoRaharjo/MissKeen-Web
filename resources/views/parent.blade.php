@@ -60,10 +60,10 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                <p>&copy;2016 Best company</p>
+                <p>&copy;2017 MissKeen Co.</p>
               </div>
               <div class="col-md-6">
-                <p class="credit pull-right">Code by <a href="https://bootstrapious.com/landing-pages" class="external">Bootstrapious</a></p>
+                <p class="credit pull-right">Code by <a href="https://bootstrapious.com/landing-pages" class="external">PLBTW Team</a></p>
                <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
               </div>
             </div>
