@@ -117,7 +117,7 @@ class RecipeController extends Controller
           'method' => 'CREATE'
         ];
         return response()->json($result, 201);
-      } catch (\QueryException $ex) {
+      } catch (\Exception $ex) {
         DB::rollback();
         $result = [
           'status' => 'false',
