@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Startup - Bootstrap Landing page Theme by Bootstrapious.com</title>
+    <title>MissKeen - Mobile Recipes Finder Application for Your Kitchen Needs.</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/frontpage/pe-icon-7-stroke.css')}}">
     <link rel="stylesheet" href="{{ asset('css/frontpage/helper.css')}}">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{ asset('css/frontpage/style.default.css')}}" id="theme-stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/frontpage/style.red.css')}}" id="theme-stylesheet">
     <!-- owl carousel-->
     <link rel="stylesheet" href="{{ asset('css/frontpage/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{ asset('css/frontpage/owl.theme.css')}}">

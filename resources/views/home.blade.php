@@ -35,7 +35,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <p><a href="#testimonials" class="scroll-to">500,000 users</a> have already trusted<strong> MissKeen Apps.</strong><br />Try it for yourself.</p>
+              <p><a href="#testimonials" class="scroll-to">500,000++ users</a> have already trusted<strong> MissKeen Apps.</strong><br />Try it for yourself.</p>
               <!--
               <form class="form-inline margin-top sign-up-form">
                 <input id="email_intro" type="email" placeholder="name@company.com" class="form-control">
@@ -82,11 +82,12 @@
           <div class="row text-center-mobile"> 
             <div class="col-md-6">
               <div class="icon"><i class="pe-7s-diamond"></i></div>
-              <h2>First great feature</h2>
-              <p>Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions. My possible peculiar together to. Desire so better am cannot he up before points. Remember mistaken opinions it pleasure of debating. Court front maids forty if aware their at. Chicken use are pressed removed.  </p>
+              <h2>Great App for you</h2>
+              <h4 class="heading">Kitchen Needs</h3>
+              <p>Aplikasi handal yang digunakan untuk membuat makanan berdasarkan berbagai macam bahan makanan yang tersisa pada dapur anda. Cukup pilih daftar bahan yang tersedia didapur anda!  </p>
             </div>
             <div class="col-md-6">
-              <p><img alt="" src="{{ asset('/img/features1.png')}}" class="img-responsive"></p>
+              <p><img alt="" src="{{ asset('/img/phone.png')}}" class="img-responsive"></p>
             </div>
           </div>
         </div>
@@ -95,12 +96,14 @@
         <div class="container">
           <div class="row text-center-mobile"> 
             <div class="col-md-6">
-              <p><img alt="" src="{{ asset('/img/features2.png')}}" class="img-responsive"></p>
+              <p><img alt="" src="{{ asset('/img/features22.png')}}" class="img-responsive"></p>
             </div>
             <div class="col-md-6">
               <div class="icon brand-terciary"><i class="pe-7s-rocket"></i></div>
-              <h2>Second super feature</h2>
-              <p>Saw yet kindness too replying whatever marianne. Old sentiments resolution admiration unaffected its mrs literature. Behaviour new set existence dashwoods. It satisfied to mr commanded consisted disposing engrossed. Tall snug do of till on easy. Form not calm new fail. </p>
+              <h2>We Provide API for you!</h2>
+              <p>Untuk kamu para Developer Indonesia! 
+              <br>Kami menyediakan API untuk anda, kembangkan aplikasi kamu lewat API kami.
+              <br> cukup daftarkan diri anda sebagai Developer <a href="#">disini</a></p>
             </div>
           </div>
         </div>
@@ -112,9 +115,9 @@
             <div class="col-md-12 col-lg-8 col-lg-offset-2 text-center">
               <div class="icon brand-secondary"><i class="pe-7s-graph1"></i></div>
               <h2>Developer Documentation</h2>
-              <p>Disamping sebagai sebuah aplikasi mobile, MissKeen juga merupakan penyedia API gratis yang memberikan kebebasan pada developer untuk mengembangkan berbagai aplikasi yang dimiliki. Untuk menggunakan API yang MissKeen gunakan sangat mudah, cukup dengan melakukan mengunduh dokumentasi MissKeen API yang tersedia.  </p>
+              <p>Disamping sebagai sebuah aplikasi mobile, MissKeen juga merupakan penyedia API gratis yang memberikan kebebasan pada developer untuk mengembangkan berbagai aplikasi yang dimiliki. Untuk menggunakan API yang MissKeen gunakan sangat mudah, cukup dengan melihat dokumenatasi kami di documentation page.  </p>
               <button class="btn btn-ghost"><a href="#">Download PDF</a></button>
-              <p class="margin-bottom--zero"><img alt="" src="{{asset('img/features3.png')}}" class="img-responsive"></p>
+              <p class="margin-bottom--zero"><img alt="" src="{{asset('img/features33.png')}}" class="img-responsive"></p>
             </div>
           </div>
         </div>
@@ -135,7 +138,7 @@
                 <div class="col-sm-6">
                   <p>Sekarang anda dapat menggunakan aplikasi ini dimana saja dan kapan sajak. MissKeen Kini hadir di perangkat mobile berbasis android dan sudah ada di play store</p>
                   </br>
-                  <p>MissKeen menyediakan dokumentasi API untuk para penyembang aplikasi yang ingin menggunakan API dari aplikasi MissKeen</p>
+                  <p>MissKeen menyediakan dokumentasi API untuk para pengembang aplikasi yang ingin menggunakan API dari aplikasi MissKeen</p>
                 </div>
               </div>
             </div>
@@ -216,7 +219,7 @@
                 <li class="item">
                   <div class="testimonial same-height-always">
                     <div class="text">
-                      <p>Suatu pagi, ketika aku bangun ternyata pelanggan sudah pada datang sedangkan bahan makanan hari ini belu di beli. aku bingung, mencoba searching ternyata ada aplikasi MissKeen, akhirnya bisa membuat makanan dari bahan sisa yang ada di dapur. Terima kasih MissKeen.</p>
+                      <p>Suatu pagi, ketika aku bangun ternyata pelanggan sudah pada datang sedangkan bahan makanan hari ini di beli. aku bingung, mencoba searching aplikasi ternyata ada aplikasi MissKeen, akhirnya bisa membuat makanan dari bahan sisa yang ada di dapur. Terima kasih MissKeen.</p>
                     </div>
                     <div class="bottom">
                       <div class="testimonial-icon"> <i class="pe-7s-comment"></i></div>
@@ -236,8 +239,8 @@
                     <div class="bottom">
                       <div class="testimonial-icon"> <i class="pe-7s-comment"></i></div>
                       <div class="name-picture"><img alt="" src="{{asset('img/person-2.jpg')}}">
-                        <h5>El Pukiano</h5>
-                        <p>Chef, Upnormal</p>
+                        <h5>Aji Budi</h5>
+                        <p>Chef, Downnormal</p>
                       </div>
                     </div>
                   </div>
@@ -245,14 +248,14 @@
                 <li class="item">
                   <div class="testimonial same-height-always">
                     <div class="text">
-                      <p>apkasi ini sangat membantu untuk membuat sarapan pagi untuk prabu dan adi pratama,jadi tidak perlu mikir resep atau makanan lagi.</p>
+                      <p>Aplikasi ini sangat membantu kami para pemilik kos jika ingin memberikan makanan pada akhir bulan kepada anak-anak kos yang sedang kelaparan dan tidak ada uang</p>
                      </br></br></br>
                     </div>
                     <div class="bottom">
                       <div class="testimonial-icon"> <i class="pe-7s-comment"></i></div>
                       <div class="name-picture"><img alt="" src="{{asset('img/person-3.png')}}">
-                        <h5>Berbie Blue Box</h5>
-                        <p>Ibu Kos, BlueBox</p>
+                        <h5>Rara Yaya</h5>
+                        <p>Pemilik Kos</p>
                       </div>
                     </div>
                   </div>
@@ -260,13 +263,13 @@
                 <li class="item">
                   <div class="testimonial same-height-always">
                     <div class="text">
-                      <p>Aplikasi anak didikku memang paling terbaik. pantas juga mendapat nilai yang baik.</p>
+                      <p>Aplikasi ini sangat cerdas, mudah digunakan dengan UI yang sangat user-friendly! welldone</p>
                     </div>
                     <div class="bottom">
                       <div class="testimonial-icon"> <i class="pe-7s-comment"></i></div>
                       <div class="name-picture"><img alt="" src="{{asset('img/person-4.jpg')}}">
-                        <h5>Sigit Purnomo</h5>
-                        <p>Dosen, UAJY</p>
+                        <h5>Doni Danu</h5>
+                        <p>Mahasiswa</p>
                       </div>
                     </div>
                   </div>
@@ -301,7 +304,7 @@
               <div class="box-simple">
                 <div class="icon"><i class="pe-7s-map-2"></i></div>
                 <h3>Address</h3>
-                <p>Jalan< Babarsari<br>Nomor 43<br>DI Yogyakarta, <strong>Sleman</strong></p>
+                <p>Jalan Babarsari<br>Nomor 43<br>DI Yogyakarta, <strong>Sleman</strong></p>
               </div>
             </div>
             <div class="col-md-4">
