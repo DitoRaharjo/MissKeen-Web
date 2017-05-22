@@ -21,11 +21,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="{{ asset('/img/logo-misskeen-small.png')}}" />
       </span>
     </a>
     <div class="tocify-wrapper">
-        <img src="images/logo.png" />
+        <a href="{{ route('home') }}"><img src="{{ asset('/img/logo-misskeen-small.png')}}" /></a>
                     <div class="lang-selector">
                                   <a href="#" data-language-name="bash">bash</a>
                             </div>
