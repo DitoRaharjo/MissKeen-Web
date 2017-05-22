@@ -3,10 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
     <title>MissKeen - Mobile Recipes Finder Application for Your Kitchen Needs.</title>
     <meta name="description" content="">
+=======
+>>>>>>> develop
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
+    <meta name="description" content="MissKeen">
+  	<meta name="author" content="MissKeen" />
+
+    <title>MissKeen</title>
+    <link rel="icon" href="{{ asset('/img/logo-misskeen-small.png')}}" type="image" sizes="16x16"> <!------------------------------------------ ICON-------------->
     <!-- Bootstrap-->
     <link rel="stylesheet" href="{{ asset('css/frontpage/bootstrap.min.css') }}">
     <!-- Google fonts - Open Sans-->

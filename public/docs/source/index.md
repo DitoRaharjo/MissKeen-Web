@@ -1,913 +1,124 @@
 ---
-title: API Reference
+title: MissKeen API Reference
 
 language_tabs:
 - bash
-- javascript
 
 includes:
+- errors
 
 search: true
 
 toc_footers:
-- <a href='http://ditoraharjo.co/misskeen'>MissKeen API</a>
+- <a href='http://ditoraharjo.co/misskeen'>MissKeen API Doc</a>
 ---
 <!-- START_INFO -->
 # Introduction
 
-<p> Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-<p> We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-<p> This example API documentation page was created with Whiteboard. Feel free to edit it and use it as a base for your own API’s documentation.</p>
-[Get Postman Collection](http://localhost/docs/collection.json)
+<p> Welcome to the MissKeen API! You can use our API to access MissKeen API endpoints, which can get information on various recipe and ingredient in our database.</p>
+<p> Right now we only have language bindings in Shell! You can view code examples in the dark area to the right. We will make another language bindings in the future.</p>
 <!-- END_INFO -->
+
+# Rate Limit
+> Example warning when exceeding rate limit:
+
+```bash
+HTTP/1.1 429 Too Many Requests
+... other headers here ...
+Retry-After: 60
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 0
+```
+
+<p> You know, because we serve you free API services, don't expect high grade server from us. We have our own need too :(. So we restrict every developer with 60 API Call per minute. The limit will refresh after a minute had pass.</p>
+<p> That is not that bad. Don't let this destroy your spirit. Keep develop great apps with our API services :D </p>
+
+<aside class="warning">
+You will get a warning if you exceed your API Call rate limit.
+</aside>
+
+
+#Authentication
+> To authorize, use this code:
+
+```bash
+curl -X POST "http://ditoraharjo.co/misskeen/api/v1/user/auth" \
+-H 'api-key: your-API-Key' \
+```
+
+> Make sure to replace <code>your-API-Key</code> with your personal API key.
+
+<p> MissKeen uses API keys to allow access to the API. You can register a new MissKeen API key at our developer portal. </p>
+<p> MissKeen expects for the API key to be included in all API requests to the server in a <b>header</b> that looks like the following: </p>
+<p> <code> api-key : your-API-key </code> </p>
+<p> Doesn't have your personal API key yet? register <a href="http://ditoraharjo.co/misskeen/register" target="blank">here</a>  </p>
+<aside class="notice">
+You must replace <code>your-API-key</code> with your personal API key.
+</aside>
+
 
 # User
 <!-- START_4da3c74fdcbf4cdb10a2b385902f342f -->
-## Authentication
-
+## Login Authentication
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/user/auth" \
--H "Accept: application/json"
+curl -X POST "http://ditoraharjo.co/misskeen/api/v1/user/auth" \
+-H "Content-Type: application/json" \
+-H 'api-key: your-API-Key' \
+-d '{
+"email" : "your@mail.com",
+"password" : "your-password"
+}'
 ```
+> Example response:
 
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/user/auth",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
+```json
+{
+    "status": "true",
+    "user": {
+        "id": "your-user-ID",
+        "fullname": "your-name",
+        "email": "your@mail.com",
+        "telp": "your-phone-number",
+        "alamat": "your-address",
+        "image": "your-image"
     }
 }
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
 ```
-
+<p> This endpoints used for authenticating user login.</p>
 
 ### HTTP Request
-`POST api/v1/user/auth`
+`POST http://ditoraharjo.co/misskeen/api/v1/user/auth`
+
+### Request Body Parameters
+
+Parameter | Type | Status
+--------- | ------- | ------- |
+    email | string |  required
+    password | string |  required
 
 
 <!-- END_4da3c74fdcbf4cdb10a2b385902f342f -->
 
 <!-- START_7fef01e7235c89049ebe3685de4bff17 -->
 ## Registration
-
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/user/register" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/user/register",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST api/v1/user/register`
-
-
-<!-- END_7fef01e7235c89049ebe3685de4bff17 -->
-
-#Recipe
-Welcome to the generated API reference.
-[Get Postman Collection](http://localhost/docs/collection.json)
-
-#Ingredient
-Welcome to the generated API reference.
-[Get Postman Collection](http://localhost/docs/collection.json)
-
-#general
-<!-- START_d0f12eaa93ee7a88953fae3789a7d552 -->
-## api/v1/recipe
-
-> Example request:
-
-```bash
-curl -X GET "http://localhost/api/v1/recipe" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/recipe",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Ayam Goreng",
-        "description": "Ayam goreng ini enak loo",
-        "procedure": "1. ayam disiapkan\r\n2. ayam digoreng\r\n3. ayam disajikan",
-        "portion": 5,
-        "like": 0,
-        "rating": 0,
-        "image": "ayamgoreng.jpg",
-        "created_at": "2017-05-05 20:57:07",
-        "updated_at": "2017-05-08 00:21:12",
-        "deleted_at": null,
-        "created_by": 1,
-        "updated_by": null,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "Bawang Putih",
-                "created_at": "2017-05-06 18:30:41",
-                "updated_at": "2017-05-06 18:30:41",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 1,
-                    "ingredient_id": 1
-                },
-                "ingredient_data": {
-                    "id": 1,
-                    "recipe_id": 1,
-                    "ingredient_id": 1,
-                    "amount": 10,
-                    "unit": "pack",
-                    "description": "dibakar",
-                    "created_at": "2017-05-06 22:56:49",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 2,
-                "name": "Daging Ayam",
-                "created_at": "2017-05-06 18:30:51",
-                "updated_at": "2017-05-06 18:30:51",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 1,
-                    "ingredient_id": 2
-                },
-                "ingredient_data": {
-                    "id": 2,
-                    "recipe_id": 1,
-                    "ingredient_id": 2,
-                    "amount": 1,
-                    "unit": "Kg",
-                    "description": "mentah",
-                    "created_at": "2017-05-06 22:58:52",
-                    "updated_at": "2017-05-19 23:00:31",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "name": "Pete Bakar",
-        "description": "Pete Bakar mantaaps",
-        "procedure": "1. siapkan 10 lonjor pete\r\n2. Lempar ke pembakaran sampah\r\n3. tunggu api padam\r\n4. ambil pete\r\n5. hidangkan di piring\r\n6. siap di santap",
-        "portion": 1,
-        "like": 0,
-        "rating": 0,
-        "image": "petebakar.jpg",
-        "created_at": "2017-05-05 21:02:49",
-        "updated_at": "2017-05-08 00:30:23",
-        "deleted_at": null,
-        "created_by": 1,
-        "updated_by": null,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 3,
-                "name": "Pete",
-                "created_at": "2017-05-06 18:30:59",
-                "updated_at": "2017-05-06 18:30:59",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 2,
-                    "ingredient_id": 3
-                },
-                "ingredient_data": {
-                    "id": 4,
-                    "recipe_id": 2,
-                    "ingredient_id": 3,
-                    "amount": 10,
-                    "unit": "lonjor",
-                    "description": "matang",
-                    "created_at": "2017-05-06 22:59:30",
-                    "updated_at": "2017-05-07 15:40:12",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 4,
-                "name": "Bawang Merah",
-                "created_at": "2017-05-06 18:31:09",
-                "updated_at": "2017-05-06 18:31:09",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 2,
-                    "ingredient_id": 4
-                },
-                "ingredient_data": {
-                    "id": 3,
-                    "recipe_id": 2,
-                    "ingredient_id": 4,
-                    "amount": 2,
-                    "unit": "siung",
-                    "description": "mentah",
-                    "created_at": "2017-05-06 22:59:01",
-                    "updated_at": "2017-05-07 15:40:11",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    },
-    {
-        "id": 11,
-        "name": "coba resep 1",
-        "description": "ini coba post 1",
-        "procedure": "1. uyee \n 2. hulala",
-        "portion": 1,
-        "like": null,
-        "rating": null,
-        "image": "coba1.jpg",
-        "created_at": "2017-05-07 00:22:28",
-        "updated_at": "2017-05-08 00:31:04",
-        "deleted_at": null,
-        "created_by": 2,
-        "updated_by": null,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "Bawang Putih",
-                "created_at": "2017-05-06 18:30:41",
-                "updated_at": "2017-05-06 18:30:41",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 11,
-                    "ingredient_id": 1
-                },
-                "ingredient_data": {
-                    "id": 1,
-                    "recipe_id": 1,
-                    "ingredient_id": 1,
-                    "amount": 10,
-                    "unit": "pack",
-                    "description": "dibakar",
-                    "created_at": "2017-05-06 22:56:49",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 5,
-                "name": "Garam",
-                "created_at": "2017-05-06 18:31:37",
-                "updated_at": "2017-05-06 18:31:37",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 11,
-                    "ingredient_id": 5
-                },
-                "ingredient_data": {
-                    "id": 5,
-                    "recipe_id": 2,
-                    "ingredient_id": 5,
-                    "amount": 1,
-                    "unit": "ember",
-                    "description": "masih bentuk batu",
-                    "created_at": "2017-05-06 23:50:41",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    },
-    {
-        "id": 12,
-        "name": "coba patch resep 2",
-        "description": "ini coba patch 2",
-        "procedure": "1. patch uyee asdsd \n 2. patch hulala aaaaaa",
-        "portion": 100,
-        "like": null,
-        "rating": null,
-        "image": "coba1patch.jpg",
-        "created_at": "2017-05-07 00:22:41",
-        "updated_at": "2017-05-08 00:31:05",
-        "deleted_at": null,
-        "created_by": 2,
-        "updated_by": 1,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "Bawang Putih",
-                "created_at": "2017-05-06 18:30:41",
-                "updated_at": "2017-05-06 18:30:41",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 12,
-                    "ingredient_id": 1
-                },
-                "ingredient_data": {
-                    "id": 1,
-                    "recipe_id": 1,
-                    "ingredient_id": 1,
-                    "amount": 10,
-                    "unit": "pack",
-                    "description": "dibakar",
-                    "created_at": "2017-05-06 22:56:49",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 5,
-                "name": "Garam",
-                "created_at": "2017-05-06 18:31:37",
-                "updated_at": "2017-05-06 18:31:37",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 12,
-                    "ingredient_id": 5
-                },
-                "ingredient_data": {
-                    "id": 5,
-                    "recipe_id": 2,
-                    "ingredient_id": 5,
-                    "amount": 1,
-                    "unit": "ember",
-                    "description": "masih bentuk batu",
-                    "created_at": "2017-05-06 23:50:41",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    },
-    {
-        "id": 13,
-        "name": "coba resep 1",
-        "description": "ini coba post 1",
-        "procedure": "1. uyee \n 2. hulala",
-        "portion": 1,
-        "like": null,
-        "rating": null,
-        "image": "coba1.jpg",
-        "created_at": "2017-05-08 12:00:38",
-        "updated_at": "2017-05-08 12:00:38",
-        "deleted_at": null,
-        "created_by": 1,
-        "updated_by": null,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "Bawang Putih",
-                "created_at": "2017-05-06 18:30:41",
-                "updated_at": "2017-05-06 18:30:41",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 13,
-                    "ingredient_id": 1
-                },
-                "ingredient_data": {
-                    "id": 1,
-                    "recipe_id": 1,
-                    "ingredient_id": 1,
-                    "amount": 10,
-                    "unit": "pack",
-                    "description": "dibakar",
-                    "created_at": "2017-05-06 22:56:49",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 5,
-                "name": "Garam",
-                "created_at": "2017-05-06 18:31:37",
-                "updated_at": "2017-05-06 18:31:37",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 13,
-                    "ingredient_id": 5
-                },
-                "ingredient_data": {
-                    "id": 5,
-                    "recipe_id": 2,
-                    "ingredient_id": 5,
-                    "amount": 1,
-                    "unit": "ember",
-                    "description": "masih bentuk batu",
-                    "created_at": "2017-05-06 23:50:41",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    },
-    {
-        "id": 14,
-        "name": "coba resep 1",
-        "description": "ini coba post 1",
-        "procedure": "1. uyee \n 2. hulala",
-        "portion": 1,
-        "like": null,
-        "rating": null,
-        "image": "coba1.jpg",
-        "created_at": "2017-05-08 17:12:39",
-        "updated_at": "2017-05-08 17:12:39",
-        "deleted_at": null,
-        "created_by": 1,
-        "updated_by": null,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "Bawang Putih",
-                "created_at": "2017-05-06 18:30:41",
-                "updated_at": "2017-05-06 18:30:41",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 14,
-                    "ingredient_id": 1
-                },
-                "ingredient_data": {
-                    "id": 1,
-                    "recipe_id": 1,
-                    "ingredient_id": 1,
-                    "amount": 10,
-                    "unit": "pack",
-                    "description": "dibakar",
-                    "created_at": "2017-05-06 22:56:49",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 5,
-                "name": "Garam",
-                "created_at": "2017-05-06 18:31:37",
-                "updated_at": "2017-05-06 18:31:37",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 14,
-                    "ingredient_id": 5
-                },
-                "ingredient_data": {
-                    "id": 5,
-                    "recipe_id": 2,
-                    "ingredient_id": 5,
-                    "amount": 1,
-                    "unit": "ember",
-                    "description": "masih bentuk batu",
-                    "created_at": "2017-05-06 23:50:41",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    },
-    {
-        "id": 15,
-        "name": "coba resep 1",
-        "description": "ini coba post 1",
-        "procedure": "1. uyee \n 2. hulala",
-        "portion": 1,
-        "like": null,
-        "rating": null,
-        "image": "coba1.jpg",
-        "created_at": "2017-05-08 17:12:41",
-        "updated_at": "2017-05-08 17:12:41",
-        "deleted_at": null,
-        "created_by": 1,
-        "updated_by": null,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "Bawang Putih",
-                "created_at": "2017-05-06 18:30:41",
-                "updated_at": "2017-05-06 18:30:41",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 15,
-                    "ingredient_id": 1
-                },
-                "ingredient_data": {
-                    "id": 1,
-                    "recipe_id": 1,
-                    "ingredient_id": 1,
-                    "amount": 10,
-                    "unit": "pack",
-                    "description": "dibakar",
-                    "created_at": "2017-05-06 22:56:49",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 5,
-                "name": "Garam",
-                "created_at": "2017-05-06 18:31:37",
-                "updated_at": "2017-05-06 18:31:37",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 15,
-                    "ingredient_id": 5
-                },
-                "ingredient_data": {
-                    "id": 5,
-                    "recipe_id": 2,
-                    "ingredient_id": 5,
-                    "amount": 1,
-                    "unit": "ember",
-                    "description": "masih bentuk batu",
-                    "created_at": "2017-05-06 23:50:41",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    },
-    {
-        "id": 16,
-        "name": "Recipe 1",
-        "description": "This is description",
-        "procedure": "1. one 2. two 3. three",
-        "portion": 5,
-        "like": null,
-        "rating": null,
-        "image": "picture.jpg",
-        "created_at": "2017-05-22 10:45:35",
-        "updated_at": "2017-05-22 10:45:35",
-        "deleted_at": null,
-        "created_by": 1,
-        "updated_by": null,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "Bawang Putih",
-                "created_at": "2017-05-06 18:30:41",
-                "updated_at": "2017-05-06 18:30:41",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 16,
-                    "ingredient_id": 1
-                },
-                "ingredient_data": {
-                    "id": 1,
-                    "recipe_id": 1,
-                    "ingredient_id": 1,
-                    "amount": 10,
-                    "unit": "pack",
-                    "description": "dibakar",
-                    "created_at": "2017-05-06 22:56:49",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 2,
-                "name": "Daging Ayam",
-                "created_at": "2017-05-06 18:30:51",
-                "updated_at": "2017-05-06 18:30:51",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 16,
-                    "ingredient_id": 2
-                },
-                "ingredient_data": {
-                    "id": 2,
-                    "recipe_id": 1,
-                    "ingredient_id": 2,
-                    "amount": 1,
-                    "unit": "Kg",
-                    "description": "mentah",
-                    "created_at": "2017-05-06 22:58:52",
-                    "updated_at": "2017-05-19 23:00:31",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    }
-]
-```
-
-### HTTP Request
-`GET api/v1/recipe`
-
-`HEAD api/v1/recipe`
-
-
-<!-- END_d0f12eaa93ee7a88953fae3789a7d552 -->
-
-<!-- START_75be859fd5fed7cb24f47877389eb72b -->
-## api/v1/recipe/{id}
-
-> Example request:
-
-```bash
-curl -X GET "http://localhost/api/v1/recipe/{id}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/recipe/{id}",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Ayam Goreng",
-        "description": "Ayam goreng ini enak loo",
-        "procedure": "1. ayam disiapkan\r\n2. ayam digoreng\r\n3. ayam disajikan",
-        "portion": 5,
-        "like": 0,
-        "rating": 0,
-        "image": "ayamgoreng.jpg",
-        "created_at": "2017-05-05 20:57:07",
-        "updated_at": "2017-05-08 00:21:12",
-        "deleted_at": null,
-        "created_by": 1,
-        "updated_by": null,
-        "deleted_by": null,
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "Bawang Putih",
-                "created_at": "2017-05-06 18:30:41",
-                "updated_at": "2017-05-06 18:30:41",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 1,
-                    "ingredient_id": 1
-                },
-                "ingredient_data": {
-                    "id": 1,
-                    "recipe_id": 1,
-                    "ingredient_id": 1,
-                    "amount": 10,
-                    "unit": "pack",
-                    "description": "dibakar",
-                    "created_at": "2017-05-06 22:56:49",
-                    "updated_at": "2017-05-07 15:30:38",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            },
-            {
-                "id": 2,
-                "name": "Daging Ayam",
-                "created_at": "2017-05-06 18:30:51",
-                "updated_at": "2017-05-06 18:30:51",
-                "deleted_at": null,
-                "created_by": null,
-                "updated_by": null,
-                "deleted_by": null,
-                "pivot": {
-                    "recipe_id": 1,
-                    "ingredient_id": 2
-                },
-                "ingredient_data": {
-                    "id": 2,
-                    "recipe_id": 1,
-                    "ingredient_id": 2,
-                    "amount": 1,
-                    "unit": "Kg",
-                    "description": "mentah",
-                    "created_at": "2017-05-06 22:58:52",
-                    "updated_at": "2017-05-19 23:00:31",
-                    "deleted_at": null,
-                    "created_by": 1,
-                    "updated_by": null,
-                    "deleted_by": null
-                }
-            }
-        ]
-    }
-]
-```
-
-### HTTP Request
-`GET api/v1/recipe/{id}`
-
-`HEAD api/v1/recipe/{id}`
-
-
-<!-- END_75be859fd5fed7cb24f47877389eb72b -->
-
-<!-- START_0786d60947212dbc94aa73a942ce805f -->
-## api/v1/recipe
-
-> Example request:
-
-```bash
-curl -X POST \
-  http://localhost/MissKeen-Web/public/api/v1/recipe \
-  -H 'api-key: nN2BVe0vO6t42PO3xCqywJNF2jWZ59' \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
-  -H 'postman-token: cc4d5ec7-b0a9-5801-4cca-fe2da86c5635' \
-  -d '{
-  "name" : "Recipe 1",
-  "description" : "This is description",
-  "procedure" : "1. one 2. two 3. three",
-  "portion" : "5",
-  "image" : "picture.jpg",
-  "created_by" : "1",
-  "ingredients" : [
-    {
-      "ingredient_id" : "1",
-      "amount" : "2",
-      "unit" : "unit",
-      "description" : "raw",
-      "created_by" : "1"
-    },
-    {
-      "ingredient_id" : "2",
-      "amount" : "1",
-      "unit" : "units",
-      "description" : "raw",
-      "created_by" : "1"
-    }
-  ]
+curl -X POST "http://ditoraharjo.co/misskeen/api/v1/user/register" \
+-H "Content-Type: application/json" \
+-H 'api-key: your-API-Key' \
+-d '{
+  "fullname" : "your-name",
+  "email" : "your@mail.com",
+  "password" : "your-password",
+  "telp" : "your-phone-number",
+  "alamat" : "your-address",
+  "image" : "your-image"
 }'
-
 ```
 
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/recipe",
-    "method": "POST",
-    "data": {
-        "name": "eos",
-        "description": "eos",
-        "procedure": "eos",
-        "portion": "eos",
-        "image": "eos",
-        "created_by": "eos",
-        "ingredients": "eos"
-},
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
 > Example response:
 
 ```json
@@ -917,113 +128,32 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
+<p> This endpoints used for registering new user.</p>
 
 ### HTTP Request
-`POST api/v1/recipe`
+`POST http://ditoraharjo.co/misskeen/api/v1/user/register`
 
-#### Parameters
+### Request Body Parameters
 
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    name | string |  required  |
-    description | string |  required  |
-    procedure | string |  required  |
-    portion | string |  required  |
-    image | string |  required  |
-    created_by | string |  required  |
-    ingredients | string |  required  |
+Parameter | Type | Status | Default
+--------- | ------- | ------- | ------- |
+  fullname | string |  required |
+  email | string |  required |
+  password | string |  required |
+  telp | string |  optional | null
+  alamat | string |  optional | null
+  image | encoded image |  optional | null
+<!-- END_7fef01e7235c89049ebe3685de4bff17 -->
 
-<!-- END_0786d60947212dbc94aa73a942ce805f -->
-<!-- START_a2de2c9feb149979e061e28298725280 -->
-## api/v1/recipe
-
+#Recipe
+<!-- START_d0f12eaa93ee7a88953fae3789a7d552 -->
+## Get All Recipe
 > Example request:
 
 ```bash
-curl -X PATCH "http://localhost/api/v1/recipe" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/recipe",
-    "method": "PATCH",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`PATCH api/v1/recipe`
-
-
-<!-- END_a2de2c9feb149979e061e28298725280 -->
-
-<!-- START_9a3bc8055aa0db2f7fdf0074b31c5823 -->
-## api/v1/recipe
-
-> Example request:
-
-```bash
-curl -X DELETE "http://localhost/api/v1/recipe" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/recipe",
-    "method": "DELETE",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`DELETE api/v1/recipe`
-
-
-<!-- END_9a3bc8055aa0db2f7fdf0074b31c5823 -->
-
-<!-- START_7fa38cd83d8af56179c16242660ea14b -->
-## api/v1/ingredient
-
-> Example request:
-
-```bash
-curl -X GET "http://localhost/api/v1/ingredient" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
+curl -X GET "http://ditoraharjo.co/misskeen/api/v1/recipe" \
+-H "Content-Type: application/json" \
+-H 'api-key: your-API-Key'
 ```
 
 > Example response:
@@ -1031,220 +161,518 @@ $.ajax(settings).done(function (response) {
 ```json
 [
     {
-        "id": 1,
-        "name": "Bawang Putih",
-        "created_at": "2017-05-06 18:30:41",
-        "updated_at": "2017-05-06 18:30:41",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
+        "id": recipe-id,
+        "name": "recipe-name",
+        "description": "recipe-description",
+        "procedure": "recipe-procedure",
+        "portion": recipe-portion,
+        "like": recipe-like,
+        "rating": recipe-rating,
+        "image": "recipe-image",
+        "created_at": "recipe-created-date",
+        "updated_at": "recipe-updated-date",
+        "deleted_at": "recipe-deleted-date",
+        "created_by": recipe-maker-ID,
+        "updated_by": recipe-updater-ID,
+        "deleted_by": recipe-deleter-ID,
+        "ingredients": [
+            {
+                "id": ingredient-ID,
+                "name": "ingredient-name",
+                "created_at": "ingredient-created-date",
+                "updated_at": "ingredient-updated-date",
+                "deleted_at": "ingredient-deleted-date",
+                "created_by": ingredient-maker-ID,
+                "updated_by": ingredient-updater-ID,
+                "deleted_by": ingredient-deleter-ID,
+                "pivot": {
+                    "recipe_id": recipe-ID,
+                    "ingredient_id": ingredient-ID
+                },
+                "ingredient_data": {
+                    "id": ingredient-data-ID,
+                    "recipe_id": recipe-ID,
+                    "ingredient_id": ingredient-ID,
+                    "amount": ingredient-amount,
+                    "unit": "ingredient-unit",
+                    "description": "ingredient-description",
+                    "created_at": "ingredient-data-created-date",
+                    "updated_at": "ingredient-data-updated-date",
+                    "deleted_at": "ingredient-data-deleted-date",
+                    "created_by": ingredient-data-maker-ID,
+                    "updated_by": ingredient-data-updater-ID,
+                    "deleted_by": ingredient-data-deleter-ID,
+                }
+            },
+            {
+              "another ingredient" : "..."
+            }
+        ]
     },
     {
-        "id": 2,
-        "name": "Daging Ayam",
-        "created_at": "2017-05-06 18:30:51",
-        "updated_at": "2017-05-06 18:30:51",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
-    },
-    {
-        "id": 3,
-        "name": "Pete",
-        "created_at": "2017-05-06 18:30:59",
-        "updated_at": "2017-05-06 18:30:59",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
-    },
-    {
-        "id": 4,
-        "name": "Bawang Merah",
-        "created_at": "2017-05-06 18:31:09",
-        "updated_at": "2017-05-06 18:31:09",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
-    },
-    {
-        "id": 5,
-        "name": "Garam",
-        "created_at": "2017-05-06 18:31:37",
-        "updated_at": "2017-05-06 18:31:37",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
-    },
-    {
-        "id": 6,
-        "name": "Merica",
-        "created_at": "2017-05-06 18:33:48",
-        "updated_at": "2017-05-06 18:33:48",
-        "deleted_at": null,
-        "created_by": null,
-        "updated_by": null,
-        "deleted_by": null
+      "another recipe" : "..."
     }
 ]
 ```
 
+<p> This endpoints retrieves all recipe.</p>
+
 ### HTTP Request
-`GET api/v1/ingredient`
+`GET http://ditoraharjo.co/misskeen/api/v1/recipe`
 
-`HEAD api/v1/ingredient`
+### Query Parameters
 
+Parameter | Default | Description |
+--------- | ------- | ------- |
+  user_id | null |  Used for get all recipe by User ID |
 
-<!-- END_7fa38cd83d8af56179c16242660ea14b -->
+<!-- END_d0f12eaa93ee7a88953fae3789a7d552 -->
 
-<!-- START_cbadb697a20a999f5cce57f767424c41 -->
-## api/v1/ingredient/{id}
+<!-- START_75be859fd5fed7cb24f47877389eb72b -->
+## Get a Specific Recipe
 
 > Example request:
 
 ```bash
-curl -X GET "http://localhost/api/v1/ingredient/{id}" \
--H "Accept: application/json"
+curl -X GET "http://ditoraharjo.co/misskeen/api/v1/recipe/{id}" \
+-H "Content-Type: application/json" \
+-H 'api-key: your-API-Key'
 ```
 
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient/{id}",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
+> Example response:
 
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
+```json
+[
+    {
+        "id": recipe-id,
+        "name": "recipe-name",
+        "description": "recipe-description",
+        "procedure": "recipe-procedure",
+        "portion": recipe-portion,
+        "like": recipe-like,
+        "rating": recipe-rating,
+        "image": "recipe-image",
+        "created_at": "recipe-created-date",
+        "updated_at": "recipe-updated-date",
+        "deleted_at": "recipe-deleted-date",
+        "created_by": recipe-maker-ID,
+        "updated_by": recipe-updater-ID,
+        "deleted_by": recipe-deleter-ID,
+        "ingredients": [
+            {
+                "id": ingredient-ID,
+                "name": "ingredient-name",
+                "created_at": "ingredient-created-date",
+                "updated_at": "ingredient-updated-date",
+                "deleted_at": "ingredient-deleted-date",
+                "created_by": ingredient-maker-ID,
+                "updated_by": ingredient-updater-ID,
+                "deleted_by": ingredient-deleter-ID,
+                "pivot": {
+                    "recipe_id": recipe-ID,
+                    "ingredient_id": ingredient-ID
+                },
+                "ingredient_data": {
+                    "id": ingredient-data-ID,
+                    "recipe_id": recipe-ID,
+                    "ingredient_id": ingredient-ID,
+                    "amount": ingredient-amount,
+                    "unit": "ingredient-unit",
+                    "description": "ingredient-description",
+                    "created_at": "ingredient-data-created-date",
+                    "updated_at": "ingredient-data-updated-date",
+                    "deleted_at": "ingredient-data-deleted-date",
+                    "created_by": ingredient-data-maker-ID,
+                    "updated_by": ingredient-data-updater-ID,
+                    "deleted_by": ingredient-data-deleter-ID,
+                }
+            },
+            {
+              "another ingredient" : "..."
+            }
+        ]
+    }
+]
+```
+
+<p> This endpoints retrieves a specific recipe.</p>
+
+### HTTP Request
+`GET http://ditoraharjo.co/misskeen/api/v1/recipe/{id}`
+
+### URL Parameters
+
+Parameter | Type | Description |
+--------- | ------- | ------- |
+  id | integer | The ID of the recipe to retrieve |
+
+
+<!-- END_75be859fd5fed7cb24f47877389eb72b -->
+
+<!-- START_0786d60947212dbc94aa73a942ce805f -->
+## Create Recipe
+
+> Example request:
+
+```bash
+curl -X POST \
+  http://ditoraharjo.co/misskeen/api/v1/recipe \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "name" : "recipe name",
+    "description" : "recipe description",
+    "procedure" : "recipe procedure",
+    "portion" : "the portion of recipe",
+    "image" : "recipe picture",
+    "created_by" : "User ID of recipe maker",
+    "ingredients" : [
+      {
+        "ingredient_id" : "ingredient ID",
+        "amount" : "ingredient amount for the recipe",
+        "unit" : "unit for measuring ingredient amount",
+        "description" : "description for ingredient to be used in recipe",
+        "created_by" : "User ID of recipe maker"
+      },
+      {
+        "another ingredient",
+      }
+    ]
+  }'
+
 ```
 
 > Example response:
 
 ```json
 {
-    "id": 1,
-    "name": "Bawang Putih",
-    "created_at": "2017-05-06 18:30:41",
-    "updated_at": "2017-05-06 18:30:41",
-    "deleted_at": null,
-    "created_by": null,
-    "updated_by": null,
-    "deleted_by": null
+  "status": "true",
+  "method": "CREATE"
 }
 ```
 
+<p> This endpoints used for creating a new recipe.</p>
+
 ### HTTP Request
-`GET api/v1/ingredient/{id}`
+`POST http://ditoraharjo.co/misskeen/api/v1/recipe`
 
-`HEAD api/v1/ingredient/{id}`
+### Request Body Parameters
 
+Parameter | Type | Status |
+--------- | ------- | ------- | -------
+    name | string |  required  |
+    description | string |  optional  |
+    procedure | string |  required  |
+    portion | integer |  required  |
+    image | string |  required  |
+    created_by | integer |  required  |
+    ingredient_id | integer |  required  |
+    amount | integer |  required  |
+    unit | string |  required  |
+    description | string |  required  |
+    created_by | integer |  required  |
+
+<!-- END_0786d60947212dbc94aa73a942ce805f -->
+<!-- START_a2de2c9feb149979e061e28298725280 -->
+## Update Recipe
+
+> Example request:
+
+```bash
+curl -X PATCH "http://ditoraharjo.co/misskeen/api/v1/recipe" \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "id" : "recipe ID"
+    "name" : "recipe name",
+    "description" : "recipe description",
+    "procedure" : "recipe procedure",
+    "portion" : "the portion of recipe",
+    "image" : "recipe picture",
+    "updated_by" : "User ID of recipe maker",
+    "ingredients" : [
+      {
+        "ingredient_id" : "ingredient ID",
+        "amount" : "ingredient amount for the recipe",
+        "unit" : "unit for measuring ingredient amount",
+        "description" : "description for ingredient to be used in recipe",
+        "created_by" : "User ID of recipe maker"
+      },
+      {
+        "another ingredient",
+      }
+    ]
+  }'
+```
+> Example response:
+
+```json
+{
+  "status": "true",
+  "method": "UPDATE"
+}
+```
+
+<p> This endpoints used for updating recipe.</p>
+
+### HTTP Request
+`PATCH http://ditoraharjo.co/misskeen/api/v1/recipe`
+
+### Request Body Parameters
+
+Parameter | Type | Status |
+--------- | ------- | ------- | -------
+    id | integer |  required  |
+    name | string |  optional  |
+    description | string |  optional  |
+    procedure | string |  optional  |
+    portion | integer |  optional  |
+    image | string |  optional  |
+    updated_by | integer |  required  |
+    ingredient_id | integer |  optional  |
+    amount | integer |  optional  |
+    unit | string |  optional  |
+    description | string |  optional  |
+    updated_by | integer |  optional (required if the ingredient is updated)  |
+
+
+<!-- END_a2de2c9feb149979e061e28298725280 -->
+
+<!-- START_9a3bc8055aa0db2f7fdf0074b31c5823 -->
+## Delete Recipe
+
+> Example request:
+
+```bash
+curl -X DELETE "http://ditoraharjo.co/misskeen/api/v1/recipe" \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "id" : "recipe ID",
+    "deleted_by" : "User IDs of recipe deleter"
+  }'
+```
+
+> Example response:
+
+```json
+{
+  "status": "true",
+  "method": "DELETE"
+}
+```
+
+<p> This endpoints used for deleting recipe.</p>
+
+### HTTP Request
+`DELETE http://ditoraharjo.co/misskeen/api/v1/recipe`
+
+### Request Body Parameters
+
+Parameter | Type | Status | Description |
+--------- | ------- | ------- | ------- |
+    id | integer |  required  | The ID of the recipe to delete |
+    deleted_by | integer |  required  | The ID of the user who delete the recipe |
+
+<!-- END_9a3bc8055aa0db2f7fdf0074b31c5823 -->
+
+
+#Ingredient
+Welcome to the generated API reference.
+[Get Postman Collection](http://localhost/docs/collection.json)
+
+<!-- START_7fa38cd83d8af56179c16242660ea14b -->
+## Get All Ingredient
+
+> Example request:
+
+```bash
+curl -X GET "http://ditoraharjo.co/misskeen/api/v1/ingredient" \
+-H "Content-Type: application/json" \
+-H 'api-key: your-API-Key'
+```
+
+> Example response:
+
+```json
+[
+    {
+        "id": ingredient-id,
+        "name": "ingredient-name",
+        "created_at": "ingredient-created-date",
+        "updated_at": "ingredient-updated-date",
+        "deleted_at": "ingredient-deleted-date",
+        "created_by": ingredient-maker-ID,
+        "updated_by": ingredient-updater-ID,
+        "deleted_by": ingredient-deleter-ID,
+    },
+    {
+        "another ingredient": "..."
+    }
+]
+```
+
+<p> This endpoints retrieves all ingredient.</p>
+
+### HTTP Request
+`GET http://ditoraharjo.co/misskeen/api/v1/ingredient`
+
+
+<!-- END_7fa38cd83d8af56179c16242660ea14b -->
+
+<!-- START_cbadb697a20a999f5cce57f767424c41 -->
+## Get a Specific Ingredient
+
+> Example request:
+
+```bash
+curl -X GET "http://ditoraharjo.co/misskeen/api/v1/ingredient/{id}" \
+-H "Content-Type: application/json" \
+-H 'api-key: your-API-Key'
+```
+
+> Example response:
+
+```json
+{
+    "id": ingredient-id,
+    "name": "ingredient-name",
+    "created_at": "ingredient-created-date",
+    "updated_at": "ingredient-updated-date",
+    "deleted_at": "ingredient-deleted-date",
+    "created_by": ingredient-maker-ID,
+    "updated_by": ingredient-updater-ID,
+    "deleted_by": ingredient-deleter-ID,
+}
+```
+
+<p> This endpoints retrieves a specific ingredient.</p>
+
+### HTTP Request
+`GET http://ditoraharjo.co/misskeen/api/v1/ingredient/{id}`
+
+### URL Parameters
+
+Parameter | Type | Description |
+--------- | ------- | ------- |
+  id | integer | The ID of the ingredient to retrieve |
 
 <!-- END_cbadb697a20a999f5cce57f767424c41 -->
 
 <!-- START_a12996ecacd5b464bb59d4b1b0aa3d0a -->
-## api/v1/ingredient
+## Create Ingredient
 
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/v1/ingredient" \
--H "Accept: application/json"
+curl -X POST "http://ditoraharjo.co/misskeen/api/v1/ingredient" \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "name" : "ingredient name",
+    "created_by" : "User IDs of ingredient maker"
+  }'
 ```
 
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
+> Example response:
+
+```json
+{
+  "status": "true",
+  "method": "CREATE"
 }
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
 ```
 
+<p> This endpoints used for creating a new ingredient.</p>
 
 ### HTTP Request
-`POST api/v1/ingredient`
+`POST http://ditoraharjo.co/misskeen/api/v1/ingredient`
 
+### Request Body Parameters
+
+Parameter | Type | Status | Description |
+--------- | ------- | ------- | ------- |
+    name | string |  required  | Name for ingredient that will be created |
+    created_by | integer |  required  | The ID of the user who make the ingredient |
 
 <!-- END_a12996ecacd5b464bb59d4b1b0aa3d0a -->
 
 <!-- START_ad56434c0b1e80969f5db1bbbdfbfb73 -->
-## api/v1/ingredient
+## Update Ingredient
 
 > Example request:
 
 ```bash
-curl -X PATCH "http://localhost/api/v1/ingredient" \
--H "Accept: application/json"
+curl -X PATCH "http://ditoraharjo.co/misskeen/api/v1/ingredient" \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "id" : "ingredient ID",
+    "name" : "ingredient name",
+    "updated_by" : "User IDs of ingredient updater"
+  }'
 ```
 
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient",
-    "method": "PATCH",
-    "headers": {
-        "accept": "application/json"
-    }
+> Example response:
+
+```json
+{
+  "status": "true",
+  "method": "UPDATE"
 }
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
 ```
 
+<p> This endpoints used for updating ingredient.</p>
 
 ### HTTP Request
-`PATCH api/v1/ingredient`
+`PATCH http://ditoraharjo.co/misskeen/api/v1/ingredient`
+
+### Request Body Parameters
+
+Parameter | Type | Status | Description |
+--------- | ------- | ------- | ------- |
+    id | integer |  required  | ID for ingredient that will be updated |
+    name | string |  required  | Name for ingredient that will be updated |
+    updated_by | integer |  required  | The ID of the user who update the ingredient |
 
 
 <!-- END_ad56434c0b1e80969f5db1bbbdfbfb73 -->
 
 <!-- START_2ff49e5a4a812f4072ac8a3fb55e0585 -->
-## api/v1/ingredient
+## Delete Ingredient
 
 > Example request:
 
 ```bash
-curl -X DELETE "http://localhost/api/v1/ingredient" \
--H "Accept: application/json"
+curl -X DELETE "http://ditoraharjo.co/misskeen/api/v1/ingredient" \
+  -H "Content-Type: application/json" \
+  -H 'api-key: your-API-Key' \
+  -d '{
+    "id" : "ingredient ID",
+    "deleted_by" : "User IDs of ingredient deleter"
+  }'
 ```
 
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost/api/v1/ingredient",
-    "method": "DELETE",
-    "headers": {
-        "accept": "application/json"
-    }
+> Example response:
+
+```json
+{
+  "status": "true",
+  "method": "DELETE"
 }
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
 ```
 
+<p> This endpoints used for deleting ingredient.</p>
 
 ### HTTP Request
-`DELETE api/v1/ingredient`
+`DELETE http://ditoraharjo.co/misskeen/api/v1/ingredient`
+
+### Request Body Parameters
+
+Parameter | Type | Status | Description |
+--------- | ------- | ------- | ------- |
+    id | integer |  required  | ID for ingredient that will be deleted |
+    updated_by | integer |  required  | The ID of the user who delete the ingredient |
 
 
 <!-- END_2ff49e5a4a812f4072ac8a3fb55e0585 -->

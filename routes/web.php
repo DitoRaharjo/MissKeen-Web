@@ -13,7 +13,11 @@
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
+Route::get('api-documentation', function () {
+    return view('apidoc');
+})->name('api.doc');
 
 /* ---------------- FrontEnd Routes -----------------  */
 // Login - Logout

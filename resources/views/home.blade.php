@@ -79,7 +79,7 @@
       <!--   *** FEATURES ***-->
       <section id="features" class="section">
         <div class="container">
-          <div class="row text-center-mobile"> 
+          <div class="row text-center-mobile">
             <div class="col-md-6">
               <div class="icon"><i class="pe-7s-diamond"></i></div>
               <h2>Great App for you</h2>
@@ -94,7 +94,7 @@
       </section>
       <section class="section background-gray-lightest">
         <div class="container">
-          <div class="row text-center-mobile"> 
+          <div class="row text-center-mobile">
             <div class="col-md-6">
               <p><img alt="" src="{{ asset('/img/features22.png')}}" class="img-responsive"></p>
             </div>
@@ -115,9 +115,15 @@
             <div class="col-md-12 col-lg-8 col-lg-offset-2 text-center">
               <div class="icon brand-secondary"><i class="pe-7s-graph1"></i></div>
               <h2>Developer Documentation</h2>
+<<<<<<< HEAD
               <p>Disamping sebagai sebuah aplikasi mobile, MissKeen juga merupakan penyedia API gratis yang memberikan kebebasan pada developer untuk mengembangkan berbagai aplikasi yang dimiliki. Untuk menggunakan API yang MissKeen gunakan sangat mudah, cukup dengan melihat dokumenatasi kami di documentation page.  </p>
               <button class="btn btn-ghost"><a href="#">Download PDF</a></button>
               <p class="margin-bottom--zero"><img alt="" src="{{asset('img/features33.png')}}" class="img-responsive"></p>
+=======
+              <p>Disamping sebagai sebuah aplikasi mobile, MissKeen juga merupakan penyedia API gratis yang memberikan kebebasan pada developer untuk mengembangkan berbagai aplikasi yang dimiliki. Untuk menggunakan API yang MissKeen gunakan sangat mudah, cukup dengan melakukan mengunduh dokumentasi MissKeen API yang tersedia.  </p>
+              <button class="btn btn-ghost"><a href="{{ route('api.doc') }}" target="blank">Go to API Doc Page</a></button>
+              <p class="margin-bottom--zero"><img alt="" src="{{asset('img/features3.png')}}" class="img-responsive"></p>
+>>>>>>> develop
             </div>
           </div>
         </div>
@@ -208,12 +214,12 @@
       <section id="testimonials" class="section testimonails background-gray-lightest">
         <div class="container">
           <h2 class="text-center">
-             
+
             What Our Customers Say
           </h2>
 
          </br></br></br>
-          <div class="row"> 
+          <div class="row">
             <div class="col-md-12">
               <ul class="owl-carousel testimonials same-height-row">
                 <li class="item">
@@ -274,7 +280,7 @@
                     </div>
                   </div>
                 </li>
-                
+
               </ul>
             </div>
           </div>
@@ -297,7 +303,7 @@
           </div>
         </div>
       </section>
-      <section id="contact" class="section background-gray-lightest"> 
+      <section id="contact" class="section background-gray-lightest">
         <div class="container">
           <div class="row">
             <div class="col-md-4">

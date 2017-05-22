@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<meta name="description" content="GetFit Aerobic Fitness Centre">
-  	<meta name="author" content="GetFit Aerobic Fitness Centre" />
+  	<meta name="description" content="MissKeen">
+  	<meta name="author" content="MissKeen" />
 
-    <title>GetFit Aerobic Fitness Centre</title>
-    <link rel="icon" href="{{ asset('uploads/Logo/logo_tabbrowser.png') }}" type="image" sizes="16x16"> <!------------------------------------------ ICON-------------->
+    <title>MissKeen</title>
+    <link rel="icon" href="{{ asset('/img/logo-misskeen-small.png')}}" type="image" sizes="16x16"> <!------------------------------------------ ICON-------------->
 
     <!----------------------------------------------------Buat Dashboard(index.html)---------->
     <!-- Bootstrap -->

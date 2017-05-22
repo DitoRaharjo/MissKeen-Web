@@ -5,9 +5,9 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>MissKeen API Reference</title>
-
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/all.js"></script>
+    <link rel="icon" href="{{ asset('/img/logo-misskeen-small.png')}}" type="image" sizes="16x16"> <!------------------------------------------ ICON-------------->
+    <link rel="stylesheet" href="{{ asset('docs/css/style.css') }}" />
+    <script src="{{ asset('docs/js/all.js') }}"></script>
 
 
           <script>
@@ -21,11 +21,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="{{ asset('/img/logo-misskeen-small.png')}}" />
       </span>
     </a>
     <div class="tocify-wrapper">
-        <img src="images/logo.png" />
+        <a href="{{ route('home') }}"><img src="{{ asset('/img/logo-misskeen-small.png')}}" /></a>
                     <div class="lang-selector">
                                   <a href="#" data-language-name="bash">bash</a>
                             </div>
