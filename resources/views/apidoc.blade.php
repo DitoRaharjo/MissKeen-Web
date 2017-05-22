@@ -47,6 +47,20 @@
 <p> Welcome to the MissKeen API! You can use our API to access MissKeen API endpoints, which can get information on various recipe and ingredient in our database.</p>
 <p> Right now we only have language bindings in Shell! You can view code examples in the dark area to the right. We will make another language bindings in the future.</p>
 <!-- END_INFO -->
+<h1>Rate Limit</h1>
+<blockquote>
+<p>Example warning when exceeding rate limit:</p>
+</blockquote>
+<pre><code class="language-bash">HTTP/1.1 429 Too Many Requests
+... other headers here ...
+Retry-After: 60
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 0</code></pre>
+<p> You know, because we serve you free API services, don't expect high grade server from us. We have our own need too :(. So we restrict every developer with 60 API Call per minute. The limit will refresh after a minute had pass.</p>
+<p> That is not that bad. Don't let this destroy your spirit. Keep develop great apps with our API services :D </p>
+<aside class="warning">
+You will get a warning if you exceed your API Call rate limit.
+</aside>
 <h1>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
