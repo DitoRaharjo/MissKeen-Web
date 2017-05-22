@@ -5,7 +5,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>MissKeen API Reference</title>
-
+    <link rel="icon" href="{{ asset('/img/logo-misskeen-small.png')}}" type="image" sizes="16x16"> <!------------------------------------------ ICON-------------->
     <link rel="stylesheet" href="{{ asset('docs/css/style.css') }}" />
     <script src="{{ asset('docs/js/all.js') }}"></script>
 
