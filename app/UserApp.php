@@ -26,6 +26,14 @@ class UserApp extends Model
   'deleted_by',
   ];
 
+  public function accessLog() {
+    return $this->hasMany('App\AccessLog');
+  }
+
+  public function apiLog() {
+    return $this->hasOne('App\ApiLog');
+  }
+
   public function category() {
     return $this->belongsTo('App\Category', 'category_id');
   }

@@ -52,6 +52,8 @@ Route::group(['middleware'=>'checkUser', 'auth'], function() {
 
   Route::get('aplikasi-live/{id}', 'Backend\ApplicationController@updateLive')->name('back.aplikasi.live');
   Route::get('aplikasi-development/{id}', 'Backend\ApplicationController@updateDevelopment')->name('back.aplikasi.development');
+
+  Route::get('aplikasi-log/{id}', 'Backend\ApplicationController@detailLog')->name('back.aplikasi.log');
 });
 
 //Pengelolaan Application Internal Administrator
@@ -68,4 +70,9 @@ Route::group(['middleware'=>'checkUser', 'auth'], function() {
 
   Route::get('aplikasiAdmin-live/{id}', 'Backend\AdminApplicationController@updateLive')->name('back.aplikasiAdmin.live');
   Route::get('aplikasiAdmin-development/{id}', 'Backend\AdminApplicationController@updateDevelopment')->name('back.aplikasiAdmin.development');
+});
+
+//Pengelolaan Statistic
+Route::group(['middleware'=>'checkUser', 'auth'], function() {
+  Route::get('statistic-index', 'Backend\StatisticController@index')->name('back.statistic.index');
 });

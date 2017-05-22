@@ -108,6 +108,7 @@
                 <ul class="nav side-menu">
                   @if(strcasecmp(Auth::user()->role->name, 'Developer')==0  )
                     <li><a href="{{ route('back.aplikasi.index') }}"><i class="fa fa-desktop "></i> Pengelolaan Aplikasi </a>
+                      <li><a href="{{ route('back.statistic.index') }}"><i class="fa fa-bar-chart "></i> Statistik API </a>
                   @elseif(strcasecmp(Auth::user()->role->name, 'Administrator')==0 )
                     <li><a href="{{ route('dashboard.administrator') }}"><i class="fa fa-desktop "></i> Aplikasi Internal </a>
                       <li><a href="#"><i class="fa fa-users "></i> Pengelolaan Aplikasi Publik </a>

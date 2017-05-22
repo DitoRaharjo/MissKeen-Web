@@ -58,5 +58,9 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'checkUser' => \App\Http\Middleware\checkUser::class,
         'checkApiKey' => \App\Http\Middleware\checkApiKey::class,
+        'ApiLogTest' => \App\Http\Middleware\ApiLogTest::class,
+        'ApiLogUser' => \App\Http\Middleware\ApiLogUser::class,
+        'ApiLogRecipe' => \App\Http\Middleware\ApiLogRecipe::class,
+        'ApiLogIngredient' => \App\Http\Middleware\ApiLogIngredient::class,
     ];
 }

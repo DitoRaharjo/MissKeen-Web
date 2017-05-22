@@ -53,7 +53,8 @@
                             @endif
                             </td>
                             <td align="center" valign="middle">
-                              <a class="btn btn-warning btn-xs" href="{{ route('back.aplikasi.edit', $aplikasi->id) }}"><span class="fa fa-search"></span> Detail dan Edit</a>
+                              <a class="btn btn-info btn-xs" href="{{ route('back.aplikasi.log', $aplikasi->id) }}"><span class="fa fa-list"></span> API Log Aplikasi</a>
+                              <a class="btn btn-warning btn-xs" href="{{ route('back.aplikasi.edit', $aplikasi->id) }}"><span class="fa fa-search"></span> Detail dan Edit Aplikasi</a>
                               <a id="delete-btn" class="btn btn-danger btn-xs" customParam="{{ route('back.aplikasi.destroy', $aplikasi->id) }}" href="#"><span class="fa fa-trash"></span> Hapus</a>
                             </td>
                           </tr>

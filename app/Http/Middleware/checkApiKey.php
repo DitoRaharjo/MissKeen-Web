@@ -9,6 +9,7 @@ use Hash;
 
 use App\User;
 use App\UserApp;
+use App\AccessLog;
 
 class checkApiKey
 {
@@ -48,6 +49,12 @@ class checkApiKey
           ];
           return response()->json($result);
         } else if(Hash::check($apiKey, $app->token_secret)) {
+          $path =  $request->path();
+          $accessLog_data['path'] = substr($path, strpos($path, "api/v1/") +7);
+          $accessLog_data['method'] = $request->method();
+          $accessLog_data['user_app_id'] = $app->id;
+          AccessLog::create($accessLog_data);
+
           return $next($request);
         } else {
           $result = [

@@ -16,6 +16,8 @@ use App\User;
 use App\UserApp;
 use App\Role;
 use App\Category;
+use App\ApiLog;
+use App\AccessLog;
 
 class ApplicationController extends Controller
 {
@@ -56,7 +58,11 @@ class ApplicationController extends Controller
       $aplikasi_data['token_secret'] = Hash::make($aplikasi_data['token']);
       $aplikasi_data['created_by']=Auth::user()->id;
       $aplikasi_data['status'] = '1';
-      UserApp::create($aplikasi_data);
+      $app = UserApp::create($aplikasi_data);
+
+      $apiLog_data['user_app_id'] = $app->id;
+      ApiLog::create($apiLog_data);
+
       DB::commit();
 
       alert()->success('Aplikasi berhasil di tambahkan', 'Tambah Aplikasi Berhasil!');
@@ -223,5 +229,11 @@ class ApplicationController extends Controller
       alert()->error('Maaf aplikasi tersebut bukan milik anda', 'Pelanggaran Akses Aplikasi!');
       return redirect()->route('back.aplikasi.index');
     }
+  }
+
+  public function detailLog($id) {
+    $semuaDetailLog = AccessLog::where('user_app_id', '=', $id)->get();
+
+    return view('backend.applicationLog.index', compact('semuaDetailLog'));
   }
 }
