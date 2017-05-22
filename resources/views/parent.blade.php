@@ -51,7 +51,8 @@
                 <li><a href="#features" class="scroll-to">Features</a></li>
                 <li><a href="#documentation" class="scroll-to">Documentation</a></li>
                 <li><a href="#contact" class="scroll-to">Contact</a></li>
-              </ul><a href="#" data-toggle="modal" data-target="#get-started" class="btn navbar-btn btn-ghost">Get started</a>
+              </ul><a href="{{ route('user.login') }}" class="btn navbar-btn btn-ghost">Log In</a>
+              <a href="{{ route('user.register') }}" class="btn navbar-btn btn-ghost">Get started</a>
             </div>
           </div>
         </div>

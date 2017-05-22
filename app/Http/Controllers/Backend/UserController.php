@@ -28,7 +28,8 @@ class UserController extends Controller
 
     public function dashboardDeveloper() {
       if (strcasecmp(Auth::user()->role->name,'Developer')==0) {
-        return view('backend.dashboard.developer');
+        // return view('backend.dashboard.developer');
+        return redirect()->route('back.aplikasi.index');
       } else {
         alert()->error('Akun anda tidak memiliki hak untuk melihat halaman ini', 'Pelanggaran Akun!');
         return redirect()->route('user.login');
@@ -159,7 +160,7 @@ class UserController extends Controller
     public function doLogout() {
       Auth::logout();
       alert()->success('Berhasil Log Out', 'Log Out!');
-      return redirect()->route('user.login');
+      return redirect()->route('home');
     }
 
     public function checkLupaPass($user_data) {

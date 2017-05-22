@@ -101,7 +101,7 @@
             <div class="col-md-6">
               <div class="icon brand-terciary"><i class="pe-7s-rocket"></i></div>
               <h2>We Provide API for you!</h2>
-              <p>Untuk kamu para Developer Indonesia! 
+              <p>Untuk kamu para Developer Indonesia!
               <br>Kami menyediakan API untuk anda, kembangkan aplikasi kamu lewat API kami.
               <br> cukup daftarkan diri anda sebagai Developer <a href="#">disini</a></p>
             </div>
@@ -116,7 +116,7 @@
               <div class="icon brand-secondary"><i class="pe-7s-graph1"></i></div>
               <h2>Developer Documentation</h2>
               <p>Disamping sebagai sebuah aplikasi mobile, MissKeen juga merupakan penyedia API gratis yang memberikan kebebasan pada developer untuk mengembangkan berbagai aplikasi yang dimiliki. Untuk menggunakan API yang MissKeen gunakan sangat mudah, cukup mengikuti dokumentasi api kami.  </p>
-              <button class="btn btn-ghost"><a href="{{ route('api.doc') }}" target="blank">Go to API Doc Page</a></button>
+              <button class="btn btn-ghost"><a href="{{ route('api.doc') }}" target="_blank">Go to API Documentation</a></button>
               <p class="margin-bottom--zero"><img alt="" src="{{asset('img/features33.png')}}" class="img-responsive"></p>
 
             </div>
