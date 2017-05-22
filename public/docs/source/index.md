@@ -58,6 +58,7 @@ You must replace <code>your-API-key</code> with your personal API key.
 
 
 # User
+<p> This part will be referencing all about user API Services. </p>
 <!-- START_4da3c74fdcbf4cdb10a2b385902f342f -->
 ## Login Authentication
 > Example request:
@@ -146,6 +147,7 @@ Parameter | Type | Status | Default
 <!-- END_7fef01e7235c89049ebe3685de4bff17 -->
 
 #Recipe
+<p> This part will be referencing all about recipe API Services. </p>
 <!-- START_d0f12eaa93ee7a88953fae3789a7d552 -->
 ## Get All Recipe
 > Example request:
@@ -478,8 +480,7 @@ Parameter | Type | Status | Description |
 
 
 #Ingredient
-Welcome to the generated API reference.
-[Get Postman Collection](http://localhost/docs/collection.json)
+<p> This part will be referencing all about ingredient API Services. </p>
 
 <!-- START_7fa38cd83d8af56179c16242660ea14b -->
 ## Get All Ingredient

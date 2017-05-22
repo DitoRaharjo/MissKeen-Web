@@ -78,6 +78,7 @@ You will get a warning if you exceed your API Call rate limit.
 You must replace <code>your-API-key</code> with your personal API key.
 </aside>
 <h1>User</h1>
+<p> This part will be referencing all about user API Services. </p>
 <!-- START_4da3c74fdcbf4cdb10a2b385902f342f -->
 <h2>Login Authentication</h2>
 <blockquote>
@@ -204,6 +205,7 @@ You must replace <code>your-API-key</code> with your personal API key.
 </table>
 <!-- END_7fef01e7235c89049ebe3685de4bff17 -->
 <h1>Recipe</h1>
+<p> This part will be referencing all about recipe API Services. </p>
 <!-- START_d0f12eaa93ee7a88953fae3789a7d552 -->
 <h2>Get All Recipe</h2>
 <blockquote>
@@ -642,8 +644,7 @@ You must replace <code>your-API-key</code> with your personal API key.
 </table>
 <!-- END_9a3bc8055aa0db2f7fdf0074b31c5823 -->
 <h1>Ingredient</h1>
-<p>Welcome to the generated API reference.
-<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<p> This part will be referencing all about ingredient API Services. </p>
 <!-- START_7fa38cd83d8af56179c16242660ea14b -->
 <h2>Get All Ingredient</h2>
 <blockquote>
