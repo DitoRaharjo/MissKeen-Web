@@ -330,7 +330,7 @@ INTRO
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe66d4e', endColorstr='#ff46426f', GradientType=1);*/
 	
-	background-image: url("{{ asset('/../img/slide-bg.jpg')}}");
+	background-image: url("{{ asset('/../img/test1.jpg')}}");
 	/*background-size: 165%;*/
 	background-repeat: no-repeat;
   }
