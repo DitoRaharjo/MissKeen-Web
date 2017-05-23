@@ -24,6 +24,8 @@ class ApiLogTest
     public function handle($request, Closure $next)
     {
       $apiKey = $request->header('api-key');
+      // $key = $request->only('api-key');
+      // $apiKey = $key['api-key'];
 
       $app = UserApp::where([
         ['token', '=', $apiKey],
@@ -31,9 +33,13 @@ class ApiLogTest
         ])->first();
 
       if($app == null) {
+        // $result = [
+        //   'status' => 'false',
+        //   'info' => 'Incorrect API Key',
+        // ];
         $result = [
           'status' => 'false',
-          'info' => 'Incorrect API Key',
+          'info' => $apiKey,
         ];
         return response()->json($result);
       } else if($app->status == 0) {
@@ -46,7 +52,7 @@ class ApiLogTest
 
         $app->apiLog->test = $app->apiLog->test + 1;
         $app->apiLog->save();
-        
+
         return $next($request);
 
       } else {
