@@ -87,7 +87,7 @@
               <p>Aplikasi handal yang digunakan untuk membuat makanan berdasarkan berbagai macam bahan makanan yang tersisa pada dapur anda. Cukup pilih daftar bahan yang tersedia didapur anda!  </p>
             </div>
             <div class="col-md-6">
-              <p><img alt="" src="{{ asset('/img/phone.png')}}" class="img-responsive"></p>
+              <p><img alt="" src="{{ asset('/img/phone2.png')}}" class="img-responsive"></p>
             </div>
           </div>
         </div>
