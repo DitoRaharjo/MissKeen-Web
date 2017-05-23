@@ -50,6 +50,11 @@ Route::group(['prefix'=>env('API_VERSION'), 'middleware'=>['ApiLogIngredient','c
   Route::patch('ingredient', 'API\IngredientController@update')->name('ingredient.update');
   Route::delete('ingredient', 'API\IngredientController@delete')->name('ingredient.delete');
 });
+
+//Searching
+Route::group(['prefix'=>env('API_VERSION'), 'middleware'=>['checkApiKey']], function() {
+  Route::post('search', 'API\SearchController@search')->name('search');
+});
 //------------------------------------------------ API-KEY ------------------------------------------------ \\
 
 //------------------------------------------------ WITHOUT API-KEY ------------------------------------------------ \\

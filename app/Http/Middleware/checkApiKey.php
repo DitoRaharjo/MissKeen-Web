@@ -39,14 +39,14 @@ class checkApiKey
           ])->first();
 
         if($app == null) {
-          // $result = [
-          //   'status' => 'false',
-          //   'info' => 'Incorrect API',
-          // ];
           $result = [
             'status' => 'false',
-            'info' => $apiKey,
+            'info' => 'Incorrect API',
           ];
+          // $result = [
+          //   'status' => 'false',
+          //   'info' => $apiKey,
+          // ];
           return response()->json($result);
         } else if($app->status == 0) {
           $result = [

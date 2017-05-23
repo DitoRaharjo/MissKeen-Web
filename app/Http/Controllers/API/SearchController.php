@@ -15,10 +15,16 @@ use App\IngredientData;
 class SearchController extends Controller
 {
     public function search(Request $request) {
-      $input_data = $request->only('ingredient_id');
+      $input_data = $request->only(
+        'ingredients'
+      );
 
+      $ingredients = $input_data['ingredients'];
 
-    }
+      $recipes = Recipe::whereHas('ingredients.ingredientData', function($query) use($ingredients) {
+        $query->whereIn('id', $ingredients);
+      })->get();
 
-
+      return response()->json($recipes);
+      }
 }
