@@ -87,7 +87,7 @@
               <p>Aplikasi handal yang digunakan untuk membuat makanan berdasarkan berbagai macam bahan makanan yang tersisa pada dapur anda. Cukup pilih daftar bahan yang tersedia didapur anda!  </p>
             </div>
             <div class="col-md-6">
-              <p><img alt="" src="{{ asset('/img/phone.png')}}" class="img-responsive"></p>
+              <p><img alt="" src="{{ asset('/img/phone2.png')}}" class="img-responsive"></p>
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@
                   <div class="box box-services">
                     <div class="icon"><i class="pe-7s-loop"></i></div>
                     <h4 class="heading">Easy to Use</h4>
-                    <p>Mudah dipakai, cukup masukkan bahan yang anda punya kedalam aplikasi kami!</p>
+                    <p>Mudah dipakai, cukup masukkan bahan yang anda punya kedalam aplikasi kami untuk mencari resep makanan!</p>
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -171,9 +171,9 @@
                 </div>
                 <div class="col-sm-4">
                   <div class="box box-services">
-                    <div class="icon"><i class="pe-7s-comment"></i></div>
-                    <h4 class="heading">Comment</h4>
-                    <p>Kalian juga bisa memberikan komentar pada apliaski ini.</p>
+                    <div class="icon"><i class="pe-7s-plus"></i></div>
+                    <h4 class="heading">Create Your own Recipe</h4>
+                    <p>Kalian juga bisa memberikan kontribusi dengan memasukkan resep anda!.</p>
                   </div>
                 </div>
               </div>
@@ -189,7 +189,7 @@
                 <div class="col-sm-4">
                   <div class="box box-services">
                     <div class="icon"><i class="pe-7s-news-paper"></i></div>
-                    <h4 class="heading">Documentaion</h4>
+                    <h4 class="heading">Documentation</h4>
                     <p>API kami dilengkapi dengan Documentation yang lengkap dan jelas</p>
                   </div>
                 </div>
