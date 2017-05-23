@@ -23,7 +23,9 @@ class ApiLogUser
      */
     public function handle($request, Closure $next)
     {
-      $apiKey = $request->header('api-key');
+      // $apiKey = $request->header('api-key');
+      $key = $request->only('api-key');
+      $apiKey = $key['api-key'];
 
       $app = UserApp::where([
         ['token', '=', $apiKey],

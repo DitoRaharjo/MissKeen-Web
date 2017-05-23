@@ -11,10 +11,14 @@ class TestController extends Controller
     public function urlQuery(Request $request) {
       $path = $request->path();
       $method = $request->method();
-      $header = $request->header();
+      $header = $request->header('api-key');
       $input = $request->all();
+      $apiKey = $request->only('api-key');
 
-      return response()->json(["path" => $path, "method" => $method, "header" => $header, "input" => $input]);
+      // return response()->json($header);
+      // return response()->json(["query" => $apiKey['api-key'], "header" => $header]);
+      // return response()->json($apiKey);
+      return response()->json([$apiKey, "path" => $path, "method" => $method, "header" => $header, "input" => $input]);
     }
 
     public function postTest(Request $request) {
