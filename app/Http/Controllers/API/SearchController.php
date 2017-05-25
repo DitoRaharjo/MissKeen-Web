@@ -8,13 +8,73 @@ use App\Http\Controllers\Controller;
 use DB;
 use Carbon\Carbon;
 
+use GuzzleHttp\Client;
+
 use App\Recipe;
 use App\Ingredient;
 use App\IngredientData;
 
 class SearchController extends Controller
 {
+    public function getCalory() {
+      $recipes = Recipe::all();
+
+      $totalCaloryApi = 0;
+
+      foreach ($recipes as $recipe) {
+        $ingredients = $recipe->ingredients->pluck('id');
+        foreach ($ingredients as $ingredient) {
+          $client = new Client();
+          $response = $client->get(
+              'http://ditoraharjo.co/misskeengizi/api/v1/gizi/'.$ingredient
+          )->getBody();
+          $response = json_decode($response);
+
+          foreach ($response as $value) {
+            $totalCaloryApi = $totalCaloryApi + $value->calory_amount;
+          }
+
+        }
+        $recipe->totalCalory = $totalCaloryApi;
+        $recipe->save();
+        $totalCaloryApi = 0;
+      }
+    }
+
+    public function getPrice() {
+      $recipes = Recipe::all();
+
+      $totalPriceApi = 0;
+
+      foreach ($recipes as $recipe) {
+        $ingredients = $recipe->ingredients->pluck('id');
+        foreach ($ingredients as $ingredient) {
+          $ingredientAmount = IngredientData::where([
+            ['ingredient_id', $ingredient],
+            ['recipe_id', $recipe->id]
+          ])->pluck('amount')->first();
+
+          $client = new Client();
+          $response = $client->get(
+              'http://ditoraharjo.co/misskeenharga/api/v1/harga/'.$ingredient
+          )->getBody();
+          $response = json_decode($response);
+
+          foreach ($response as $value) {
+            $totalPriceApi = $totalPriceApi + ($value->harga * $ingredientAmount);
+          }
+
+        }
+        $recipe->totalPrice = $totalPriceApi;
+        $recipe->save();
+        $totalPriceApi = 0;
+      }
+    }
+
     public function search(Request $request) {
+      $this->getCalory();
+      $this->getPrice();
+
       $input_data = $request->only(
         'ingredients'
       );
