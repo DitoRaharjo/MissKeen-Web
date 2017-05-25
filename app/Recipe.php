@@ -16,6 +16,8 @@ class Recipe extends Model
   'like',
   'rating',
   'image',
+  'totalCalory',
+  'totalPrice',
   'created_at',
   'updated_at',
   'deleted_at',
