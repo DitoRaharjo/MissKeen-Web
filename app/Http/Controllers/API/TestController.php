@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input as Input;
 
+use GuzzleHttp\Client;
+
+use App\Recipe;
+
 class TestController extends Controller
 {
     public function urlQuery(Request $request) {

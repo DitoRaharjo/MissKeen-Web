@@ -170,6 +170,7 @@ return [
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
+        Kozz\Laravel\Providers\Guzzle::class,
 
         /*
          * Application Service Providers...
@@ -230,7 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'Image' => Intervention\Image\Facades\Image::class,
-
+        'Guzzle' => Kozz\Laravel\Facades\Guzzle::class,
     ],
 
 ];
