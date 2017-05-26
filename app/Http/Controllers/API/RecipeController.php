@@ -167,12 +167,14 @@ class RecipeController extends Controller
       {
         $recipe->update($recipe_data);
 
-        $ingredientData = $recipe->ingredientData;
+        if($ingredients != null ) {
+          $ingredientData = $recipe->ingredientData;
 
-        foreach ($ingredientData as $value) {
-          foreach ($ingredients as $ingredient) {
-            if(($value->ingredient_id == $ingredient['ingredient_id'])) {
-              $value->update($ingredient);
+          foreach ($ingredientData as $value) {
+            foreach ($ingredients as $ingredient) {
+              if(($value->ingredient_id == $ingredient['ingredient_id'])) {
+                $value->update($ingredient);
+              }
             }
           }
         }
